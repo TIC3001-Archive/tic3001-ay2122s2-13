@@ -15,3 +15,6 @@
 log/
 target/
 
+# Build
+out/
+*-output.txt

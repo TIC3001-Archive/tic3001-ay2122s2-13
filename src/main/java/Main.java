@@ -50,7 +50,7 @@ public class Main {
     }
 
     static ArrayList<ArrayList<String>> lexi (ArrayList<ArrayList<String>> arrays) { //sort it lexicographically
-        arrays.sort(Comparator.comparing(a -> a.get(0).toLowerCase()));
+        arrays.sort(Comparator.comparing(a -> String.join(" ",a).toLowerCase()));
         return arrays;
     }
 
@@ -68,8 +68,8 @@ public class Main {
     }
 
     public static void main(String[] args) throws IOException {
-        String input_path =  "C:\\Users\\Roshan\\Desktop\\Input1.txt";
-        String output_path = "C:\\Users\\Roshan\\Desktop\\Output1.txt";
+        String input_path = args[0];
+        String output_path = input_path.replace(".txt", "-output.txt");
 
         write(output_path,lexi(rearrange(parseFile(input_path))));
     }

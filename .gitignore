@@ -1,17 +1,31 @@
-# Eclipse
-.classpath
-.project
-.settings/
+# IDEA files
+/.idea/
+/out/
+/*.iml
+/lib
 
-# Intellij
-.idea/
-*.iml
-*.iws
+# Gradle build files
+/.gradle/
+/build/
+src/main/resources/docs/
 
-# Mac
+# Maven build files
+/NoelLim
+/target
+
+# MacOS custom attributes files created by Finder
 .DS_Store
+*.iml
+bin/
 
-# Maven
-log/
-target/
-
+# Generated files and binary
+/src/main/resources/*
+!/src/main/resources/data/*
+*.jar
+# Test
+/text-ui-test/ACTUAL.txt
+text-ui-test/EXPECTED-UNIX.TXT
+/src/test/resources/generated/*
+/src/test/resources/test-output/actual.txt
+/src/test/resources/linux-test
+*-output.txt

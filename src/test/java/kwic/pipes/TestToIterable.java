@@ -3,258 +3,56 @@ package kwic.pipes;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static kwic.TestKWICUtils.COLLECT_LINES;
 import static kwic.TestKWICUtils.IS_SAME_LINES;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestLexi {
+public class TestToIterable {
 
     @Test
     void Test_Input_Empty() {
-        ArrayList<ArrayList<String>> input = new ArrayList<>();
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        ArrayList<ArrayList<String>> expected = input;
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
+      String input = "";
+      ArrayList<ArrayList<String>> expected = COLLECT_LINES();
+      ArrayList<ArrayList<String>> actual =  Pipes.TO_ITERABLE(input);
 
-    @Test
-    void Test_Input_OneLineWithOneWord() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<>() {{
-            add("a");
-        }};
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine1;
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
-
-    @Test
-    void Test_Input_OneLineWithTwoWords() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<>() {{
-            add("a");
-            add("b");
-        }};
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine1;
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
-
-    @Test
-    void Test_Input_OneLineWithThreeWords() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<>() {{
-            add("a");
-            add("b");
-            add("c");
-        }};
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine1;
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1);
-
-        // act
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
-
-    @Test
-    void Test_Input_TwoSortedLinesWithOneWord() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
-            add("a");
-        }};
-
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
-            add("b");
-        }};
-
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine1;
-
-        ArrayList<String> expectedLine2 = inputLine2;
-
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
-
-    @Test
-    void Test_Input_TwoUnsortedSortedLinesWithTwoWords_1() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
-            add("c");
-            add("d");
-        }};
-
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
-            add("a");
-            add("b");
-        }};
-
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine2;
-        ArrayList<String> expectedLine2 = inputLine1;
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
-
-    @Test
-    void Test_Input_TwoUnsortedSortedLinesWithTwoWords_2() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
-            add("c");
-            add("d");
-        }};
-
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
-            add("c");
-            add("b");
-        }};
-
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine2;
-        ArrayList<String> expectedLine2 = inputLine1;
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
-
-    @Test
-    void Test_Input_TwoLinesWithThreeWords_1() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
-            add("d");
-            add("e");
-            add("f");
-        }};
-
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
-            add("a");
-            add("b");
-            add("c");
-        }};
-
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine2;
-        ArrayList<String> expectedLine2 = inputLine1;
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
-
-    @Test
-    void Test_Input_TwoLinesWithThreeWords_2() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
-            add("d");
-            add("e");
-            add("f");
-        }};
-
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
-            add("d");
-            add("e");
-            add("c");
-        }};
-
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine2;
-        ArrayList<String> expectedLine2 = inputLine1;
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
-    }
-
-    @Test
-    void Test_Input_TwoLinesWithThreeWords_3_ShouldBeCaseInsensitive() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
-            add("D");
-            add("e");
-            add("c");
-        }};
-
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
-            add("d");
-            add("e");
-            add("c");
-        }};
-
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine1;
-        ArrayList<String> expectedLine2 = inputLine2;
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+      assertTrue(actual.size() == 0);
+      assertTrue(IS_SAME_LINES(expected,actual));
     }
 
 
     @Test
-    void Test_Input_TwoLinesWithIrregularWordCounts() {
-        // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
-            add("e");
-            add("f");
-        }};
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
-            add("a");
-            add("b");
-            add("c");
-        }};
+    void Test_Input_SingleWordLine() {
+        String input = "a";
+        ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")));
+        ArrayList<ArrayList<String>> actual =  Pipes.TO_ITERABLE(input);
 
-
-        ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2);
-        // arrange expected
-        ArrayList<String> expectedLine1 = inputLine2;
-
-        ArrayList<String> expectedLine2 = inputLine1;
-
-
-        // act
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Pipes.LEXI(input);
-        // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(actual.size() == 1);
+        assertTrue(IS_SAME_LINES(expected,actual));
     }
 
+    @Test
+    void Test_Input_SingleWordLines() {
+        String input = "a\nb";
+        ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")),new ArrayList<String>(List.of("b")));
+        ArrayList<ArrayList<String>> actual =  Pipes.TO_ITERABLE(input);
+
+        assertTrue(actual.size() == 2);
+        assertTrue(actual.get(1).get(0).equals("b"));
+        assertTrue(actual.get(0).get(0).equals("a"));
+        assertTrue(IS_SAME_LINES(expected,actual));
+    }
+    @Test
+    void Test_Input_MultipleLines() {
+        String input = "a d\nb\nc";
+        ArrayList<String> expectedLine1 = new ArrayList<String>(List.of("a","d"));
+        ArrayList<String> expectedLine2 = new ArrayList<String>(List.of("b"));
+        ArrayList<String> expectedLine3 = new ArrayList<String>(List.of("c"));
+        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1,expectedLine2,expectedLine3);
+        ArrayList<ArrayList<String>> actual =  Pipes.TO_ITERABLE(input);
+
+        assertTrue(actual.size() == 3);
+        assertTrue(IS_SAME_LINES(expected,actual));
+    }
 }

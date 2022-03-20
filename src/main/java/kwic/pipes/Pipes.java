@@ -1,9 +1,23 @@
 package kwic.pipes;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
+import java.util.stream.Collectors;
 
 public class Pipes {
+    public static ArrayList<ArrayList<String>> TO_ITERABLE(String content) {
+        return new ArrayList<>(new ArrayList<String>(List.of(content.split("\n"))).stream().filter(line -> line != "").map(line -> new ArrayList<String>(List.of(line.split(" ")))).collect(Collectors.toList()));
+    }
+
+    public static String TO_STRING(ArrayList<ArrayList<String>> _lines) {
+        ArrayList<String> lines = new ArrayList<String>();
+        for (ArrayList<String> _line : _lines) {
+            String line = String.join(" ", _line);
+            lines.add(line);
+        }
+        return String.join("\n", lines);
+    }
 
     public static ArrayList<ArrayList<String>> SHIFT(ArrayList<ArrayList<String>> lines) {
         ArrayList<ArrayList<String>> shiftedLinesAll = new ArrayList<>();

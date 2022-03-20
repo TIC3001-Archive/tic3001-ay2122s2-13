@@ -1,4 +1,6 @@
 package kwic.adapter;
 
-public class StringToIterable {
+public class IterableToString {
+
+    
 }

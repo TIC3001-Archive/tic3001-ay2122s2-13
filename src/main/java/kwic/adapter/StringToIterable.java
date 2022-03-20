@@ -1,2 +1,6 @@
-package kwic.adapter;public class stringToIterable {
+package kwic.adapter;
+
+public class StringToIterable {
+
+
 }

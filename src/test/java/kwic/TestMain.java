@@ -1,3 +1,5 @@
+package kwic;
+
 import org.junit.jupiter.api.Test;
 
 class TestMain {

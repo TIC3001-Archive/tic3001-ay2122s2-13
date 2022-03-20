@@ -2,8 +2,12 @@ package kwic.pipes;
 
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Locale;
 
+interface FilterInterface {
+    ArrayList<ArrayList<String>> filter (ArrayList<ArrayList<String>> source);
+}
 public class Pipes {
 
     public static ArrayList<ArrayList<String>> SHIFT (ArrayList<ArrayList<String>> lines) {
@@ -32,5 +36,25 @@ public class Pipes {
 
         alphabetized.sort((ArrayList<String> a, ArrayList<String> b) -> String.join(" ",a).toLowerCase(Locale.ROOT).compareTo(String.join(" ",b).toLowerCase(Locale.ROOT)));
         return alphabetized;
+    }
+    public static FilterInterface NEW_FILTER(ArrayList<String> ignoreList){
+
+        final HashSet<String> ignoreSet = new HashSet<>();
+
+        for(String ignore: ignoreList){
+            ignoreSet.add(ignore.toLowerCase(Locale.ROOT));
+        }
+
+        return new FilterInterface() {
+            public ArrayList<ArrayList<String>> filter(ArrayList<ArrayList<String>> lines) {
+                ArrayList<ArrayList<String>> filtered = new ArrayList<>();
+                for(ArrayList<String> words: lines){
+                    if(!ignoreSet.contains(words.get(0).toLowerCase(Locale.ROOT))){
+                        filtered.add(words);
+                    };
+                }
+                return filtered;
+            }
+        };
     }
 }

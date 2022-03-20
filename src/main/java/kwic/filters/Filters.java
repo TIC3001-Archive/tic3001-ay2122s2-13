@@ -6,10 +6,6 @@ import java.util.HashSet;
 import java.util.Locale;
 
 
-interface FilterInterface {
-    ArrayList<ArrayList<String>> filter(ArrayList<ArrayList<String>> source);
-}
-
 interface PredicateInterface {
     boolean shouldSelect(String word);
 }

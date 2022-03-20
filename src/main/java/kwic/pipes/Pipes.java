@@ -6,9 +6,29 @@ import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class Pipes {
-    public static ArrayList<ArrayList<String>> TO_ITERABLE(String content) {
-        return new ArrayList<>(new ArrayList<String>(List.of(content.split("\n"))).stream().filter(line -> line != "").map(line -> new ArrayList<String>(List.of(line.split(" ")))).collect(Collectors.toList()));
+
+    private static ArrayList<String> splitByBreak(String text) {
+        return new ArrayList<String>(List.of(text.split("\n")));
     }
+
+    private static ArrayList<String> splitBySpace(String text) {
+        return new ArrayList<String>(List.of(text.split(" ")));
+    }
+
+    public static ArrayList<String> TO_ITERABLE_KEYWORDS(String content) {
+        return new ArrayList<>(splitByBreak(content).stream().filter(word -> word != "").collect(Collectors.toList()));
+    }
+
+
+    public static ArrayList<String> TO_ITERABLE_TITLE(String content) {
+        return new ArrayList<>(splitBySpace(content).stream().filter(word -> word != "").collect(Collectors.toList()));
+    }
+
+    public static ArrayList<ArrayList<String>> TO_ITERABLE_TITLES(String content) {
+        return new ArrayList<>(splitByBreak(content).stream().filter(line -> line != "").map(line -> TO_ITERABLE_TITLE(line)).collect(Collectors.toList()));
+    }
+
+
 
     public static String TO_STRING(ArrayList<ArrayList<String>> _lines) {
         ArrayList<String> lines = new ArrayList<String>();

@@ -6,9 +6,6 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 
 
-interface WriterInterface{
-    void write(String output);
-}
 public class Writer {
     public static WriterInterface NEW_WRITE (String pathString ) {
         return output -> {

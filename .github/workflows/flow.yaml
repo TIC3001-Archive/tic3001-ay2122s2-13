@@ -16,7 +16,7 @@ jobs:
         with:
           java-version: '11'
           distribution: 'temurin'
-      - name: Run deployment test using maven
-        run: ./run-deployment-test.sh
+      - name: Run integration test using maven
+        run: ./run-integration-test.sh
       - name: After run status
         run: echo "🍏 This job's status is ${{ job.status }}."

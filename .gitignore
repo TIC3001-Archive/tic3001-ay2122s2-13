@@ -29,4 +29,3 @@ text-ui-test/EXPECTED-UNIX.TXT
 /src/test/resources/test-output/actual.txt
 /src/test/resources/linux-test
 /sample_test_cases/*/*-output.txt
-residue

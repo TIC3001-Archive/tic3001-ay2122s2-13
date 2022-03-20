@@ -9,7 +9,7 @@ public class TestKWICUtils {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            if (expected.get(i) != actual.get(i)) {
+            if (!expected.get(i).equals(actual.get(i))) {
                 return false;
             }
         }

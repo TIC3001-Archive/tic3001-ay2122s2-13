@@ -21,7 +21,7 @@ public class TestLexi {
     @Test
     void Test_Input_OneLineWithOneWord() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("a");
         }};
         ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1);
@@ -38,7 +38,7 @@ public class TestLexi {
     @Test
     void Test_Input_OneLineWithTwoWords() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("a");
             add("b");
         }};
@@ -56,7 +56,7 @@ public class TestLexi {
     @Test
     void Test_Input_OneLineWithThreeWords() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("a");
             add("b");
             add("c");

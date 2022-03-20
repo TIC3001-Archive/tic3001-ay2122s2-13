@@ -1,4 +1,4 @@
-package kwic.pipes;
+package kwic.filters;
 
 import org.junit.jupiter.api.Test;
 
@@ -9,15 +9,17 @@ import static kwic.TestKWICUtils.COLLECT_LINES;
 import static kwic.TestKWICUtils.IS_SAME_LINES;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestFilter {
+public class TestIgnore {
 
     private static final ArrayList<String> IGNORES_1 = new ArrayList<String>(Arrays.asList("is", "a"));
     private static final ArrayList<String> IGNORES_2 = new ArrayList<String>();
 
+    private static FilterInterface FILTER_1 = Filters.NEW_FILTER_IGNORE(TestIgnore.IGNORES_1);
+
     @Test
     void Test_Input_Empty() {
         ArrayList<ArrayList<String>> input = new ArrayList<>();
-        ArrayList<ArrayList<String>> actual = Pipes.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         ArrayList<ArrayList<String>> expected = input;
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -46,11 +48,9 @@ public class TestFilter {
         // arrange expected
         ArrayList<ArrayList<String>> expected = COLLECT_LINES();
 
-        // get filter
-        FilterInterface filter = Pipes.NEW_FILTER(TestFilter.IGNORES_1);
 
         // act
-        ArrayList<ArrayList<String>> actual = filter.filter(input);
+        ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -87,11 +87,10 @@ public class TestFilter {
         // arrange expected
         ArrayList<ArrayList<String>> expected = COLLECT_LINES();
 
-        // get filter
-        FilterInterface filter = Pipes.NEW_FILTER(TestFilter.IGNORES_1);
+        
 
         // act
-        ArrayList<ArrayList<String>> actual = filter.filter(input);
+        ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -129,11 +128,10 @@ public class TestFilter {
         // arrange expected
         ArrayList<ArrayList<String>> expected = input;
 
-        // get filter
-        FilterInterface filter = Pipes.NEW_FILTER(TestFilter.IGNORES_1);
+        
 
         // act
-        ArrayList<ArrayList<String>> actual = filter.filter(input);
+        ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
 
@@ -173,11 +171,10 @@ public class TestFilter {
         // arrange expected
         ArrayList<ArrayList<String>> expected = input;
 
-        // get filter
-        FilterInterface filter = Pipes.NEW_FILTER(TestFilter.IGNORES_2);
+        
 
         // act
-        ArrayList<ArrayList<String>> actual = filter.filter(input);
+        ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
 

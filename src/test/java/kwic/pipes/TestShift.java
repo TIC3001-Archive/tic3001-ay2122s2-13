@@ -4,45 +4,11 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static kwic.TestKWICUtils.COLLECT_LINES;
+import static kwic.TestKWICUtils.IS_SAME_LINES;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-
 public class TestShift {
-    boolean IS_SAME_LINE(ArrayList<String> expected, ArrayList<String> actual) {
-        int size = expected.size();
-        if (size != actual.size()) {
-            return false;
-        }
-        for (int i = 0; i < size; i++) {
-            if (expected.get(i) != actual.get(i)) {
-                return false;
-            }
-        }
-        return true;
-    }
 
-    boolean IS_SAME_LINES(ArrayList<ArrayList<String>> expected, ArrayList<ArrayList<String>> actual) {
-        int size = expected.size();
-        if (size != actual.size()) {
-            return false;
-        }
-        for (int i = 0; i < size; i++) {
-            if (!IS_SAME_LINE(expected.get(i), actual.get(i))) {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    ArrayList<ArrayList<String>> COLLECT_LINES(ArrayList<String>... additions) {
-
-        ArrayList<ArrayList<String>> inputs = new ArrayList<ArrayList<String>>();
-
-        for (ArrayList<String> addition : additions) {
-            inputs.add(addition);
-        }
-        return inputs;
-    }
 
     @Test
     void Test_Input_Empty() {
@@ -51,6 +17,7 @@ public class TestShift {
         ArrayList<ArrayList<String>> expected = input;
         assertTrue(IS_SAME_LINES(expected, actual));
     }
+
 
     @Test
     void Test_Input_OneLineWithOneWord() {

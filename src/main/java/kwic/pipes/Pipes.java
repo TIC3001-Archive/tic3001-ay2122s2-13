@@ -2,6 +2,7 @@ package kwic.pipes;
 
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 public class Pipes {
 
@@ -20,5 +21,16 @@ public class Pipes {
             shiftedLinesAll.addAll(thisShiftedLines);
         }
         return shiftedLinesAll;
+    }
+
+
+    public static ArrayList<ArrayList<String>> LEXI (ArrayList<ArrayList<String>> lines) {
+        ArrayList<ArrayList<String>> alphabetized = new ArrayList<>();
+        for(ArrayList<String> words: lines){
+            alphabetized.add(words);
+        }
+
+        alphabetized.sort((ArrayList<String> a, ArrayList<String> b) -> String.join(" ",a).toLowerCase(Locale.ROOT).compareTo(String.join(" ",b).toLowerCase(Locale.ROOT)));
+        return alphabetized;
     }
 }

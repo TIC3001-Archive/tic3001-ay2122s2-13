@@ -15,7 +15,7 @@ test_codes=("1" "2" "3")
 echo "running test"
 for i in "${test_codes[@]}"; do
 
-  folder="./src/test/sample_test_cases/testcase${i}"
+  folder="./sample_test_cases/testcase${i}"
   java -jar NoelLim/KWIC.jar "${folder}/TitlesInput${i}.txt"
 
   cmp --print-chars "${folder}/Output${i}.txt" "${folder}/TitlesInput${i}-output.txt"

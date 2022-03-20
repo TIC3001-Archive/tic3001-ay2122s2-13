@@ -1,4 +1,4 @@
-package kwic;
+package kwic.kwicio;
 
 
 import java.io.FileWriter;
@@ -12,8 +12,6 @@ public class Writer {
 
     private Writer() {
     }
-
-    ;
 
     public Writer(String path) {
         this.path = path;

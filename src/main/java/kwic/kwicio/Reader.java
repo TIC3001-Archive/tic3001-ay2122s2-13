@@ -1,4 +1,4 @@
-package kwic;
+package kwic.kwicio;
 
 
 import java.io.File;
@@ -14,8 +14,6 @@ public class Reader {
 
     private Reader() {
     }
-
-    ;
 
     public Reader(String path) {
         this.path = path;

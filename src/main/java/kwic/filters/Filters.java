@@ -14,7 +14,6 @@ interface PredicateInterface {
     boolean shouldSelect(String word);
 }
 
-
 public class Filters {
 
     private static FilterInterface NEW_FILTER(PredicateInterface p) {
@@ -27,7 +26,6 @@ public class Filters {
             }
             return filtered;
         };
-
     }
 
     public static FilterInterface NEW_FILTER_IGNORE(ArrayList<String> ignoreList) {
@@ -47,5 +45,4 @@ public class Filters {
         PredicateInterface p = word -> requireSet.contains(word.toLowerCase(Locale.ROOT));
         return NEW_FILTER(p);
     }
-
 }

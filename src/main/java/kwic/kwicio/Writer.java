@@ -7,14 +7,14 @@ import java.nio.file.Path;
 
 
 interface WriterInterface{
-    public void write(String output);
+    void write(String output);
 }
 public class Writer {
     public static WriterInterface NEW_WRITE (String pathString ) {
         return output -> {
             try {
                 Files.write(Path.of(pathString), output.getBytes(StandardCharsets.UTF_8));
-            } catch (Exception __) {
+            } catch (Exception ignored) {
             }
         };
     }

@@ -15,7 +15,6 @@ public class TestIgnore {
     private static final ArrayList<String> IGNORES_2 = new ArrayList<String>();
 
     private static FilterInterface FILTER_1 = Filters.NEW_FILTER_IGNORE(TestIgnore.IGNORES_1);
-    private static FilterInterface FILTER_2 = Filters.NEW_FILTER_IGNORE(TestIgnore.IGNORES_2);
 
     @Test
     void Test_Input_Empty() {
@@ -175,7 +174,7 @@ public class TestIgnore {
         
 
         // act
-        ArrayList<ArrayList<String>> actual = FILTER_2.filter(input);
+        ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
 

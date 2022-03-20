@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import static kwic.TestKWICUtils.COLLECT_LINES;
 import static kwic.TestKWICUtils.IS_SAME_LINES;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
 public class TestShift {
 
 
@@ -194,6 +195,7 @@ public class TestShift {
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
+
     @Test
     void Test_Input_TwoLinesWithIrregularWordCounts() {
         // arrange inputs

@@ -46,19 +46,19 @@ public class Main {
                 ArrayList<String> current = new ArrayList<>(Arrays.asList(temp));
                 semi.add(current);
             }
-        } return semi;
+        }
+        return semi;
     }
 
-    static ArrayList<ArrayList<String>> lexi (ArrayList<ArrayList<String>> arrays) { //sort it lexicographically
-        arrays.sort(Comparator.comparing(a -> String.join(" ",a).toLowerCase()));
+    static ArrayList<ArrayList<String>> lexi(ArrayList<ArrayList<String>> arrays) { //sort it lexicographically
+        arrays.sort(Comparator.comparing(a -> String.join(" ", a).toLowerCase()));
         return arrays;
     }
 
-    static void write (String filename, ArrayList<ArrayList<String>> in) throws IOException { //write output file
+    static void write(String filename, ArrayList<ArrayList<String>> in) throws IOException { //write output file
         FileWriter writer = new FileWriter(filename);
         for (ArrayList<String> element : in) {
-            for (String e : element)
-            {
+            for (String e : element) {
                 writer.write(e);
                 writer.write(" ");
             }
@@ -71,6 +71,6 @@ public class Main {
         String input_path = args[0];
         String output_path = input_path.replace(".txt", "-output.txt");
 
-        write(output_path,lexi(rearrange(parseFile(input_path))));
+        write(output_path, lexi(rearrange(parseFile(input_path))));
     }
 }

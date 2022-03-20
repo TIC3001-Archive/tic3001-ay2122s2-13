@@ -1,8 +1,8 @@
 package kwic.line.aggregator;
 
-import java.util.ArrayList;
-
 import kwic.line.model.Line;
+
+import java.util.ArrayList;
 
 
 public class Lines {

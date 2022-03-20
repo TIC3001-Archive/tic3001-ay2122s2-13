@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
+import static kwic.TestKWICUtils.COLLECT_LINES;
 import static kwic.TestKWICUtils.IS_SAME_LINES;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static kwic.TestKWICUtils.COLLECT_LINES;
 
 public class TestLexi {
 

@@ -1,10 +1,7 @@
 package kwic.pipes;
 
-
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.Locale;
-
 
 public class Pipes {
 

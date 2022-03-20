@@ -1,7 +1,6 @@
 package kwic.filters;
 
 
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Locale;
@@ -12,14 +11,13 @@ interface FilterInterface {
 }
 
 interface PredicateInterface {
-    boolean shouldSelect (String word);
+    boolean shouldSelect(String word);
 }
-
 
 
 public class Filters {
 
-    private static FilterInterface NEW_FILTER(PredicateInterface p){
+    private static FilterInterface NEW_FILTER(PredicateInterface p) {
         return lines -> {
             ArrayList<ArrayList<String>> filtered = new ArrayList<>();
             for (ArrayList<String> words : lines) {
@@ -31,6 +29,7 @@ public class Filters {
         };
 
     }
+
     public static FilterInterface NEW_FILTER_IGNORE(ArrayList<String> ignoreList) {
         final HashSet<String> ignoreSet = new HashSet<>();
         for (String ignore : ignoreList) {

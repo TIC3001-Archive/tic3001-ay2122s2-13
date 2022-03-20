@@ -1,31 +1,21 @@
 package kwic.kwicio;
 
 
-import java.io.FileWriter;
-import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
+
+interface WriterInterface{
+    public void write(String output);
+}
 public class Writer {
-
-
-    private String path = null;
-
-
-    private Writer() {
+    public static WriterInterface NEW_WRITE (String pathString ) {
+        return output -> {
+            try {
+                Files.write(Path.of(pathString), output.getBytes(StandardCharsets.UTF_8));
+            } catch (Exception __) {
+            }
+        };
     }
-
-    public Writer(String path) {
-        this.path = path;
-    }
-
-    public void writeAndClose(String output) throws Exception {
-        try {
-            FileWriter writer = new FileWriter(this.path, false);
-            writer.write(output);
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-
 }

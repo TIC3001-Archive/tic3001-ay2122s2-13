@@ -1,41 +1,15 @@
 package kwic.kwicio;
 
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Reader {
-
-
-    private String path = null;
-    private ArrayList<String> lineStrings = null;
-
-    private Reader() {
-    }
-
-    public Reader(String path) {
-        this.path = path;
-    }
-
-    public ArrayList<String> getContent() {
-        if (lineStrings == null) {
-            try {
-                lineStrings = new ArrayList<>();
-                File myObj = new File(this.path);
-                Scanner myReader = new Scanner(myObj);
-                while (myReader.hasNextLine()) {
-                    String data = myReader.nextLine();
-                    lineStrings.add(data);
-                }
-                myReader.close();
-            } catch (FileNotFoundException e) {
-                System.out.println("An error occurred." + e.toString());
-            }
+    public static String READ(String path) {
+        try {
+            return new String(Files.readAllBytes(Path.of(path)), StandardCharsets.UTF_8);
+        } catch (Exception __) {
+            return "";
         }
-        return lineStrings;
     }
-
-
 }

@@ -16,11 +16,12 @@ echo "running test"
 blankfiledir="./sample_test_cases/blank.txt"
 for i in "${test_codes[@]}"; do
 
-  folder="./sample_test_cases/testcase${i}"
-  java -jar NoelLim/KWIC.jar "${folder}/TitlesInput${i}.txt" "${blankfiledir}" "${blankfiledir}"
+  folder="./sample_test_cases/Test${i}"
 
-  echo "comparing ${folder}/Output${i}.txt ${folder}/TitlesInput${i}-output.txt"
-  cmp --print-chars "${folder}/Output${i}.txt" "${folder}/TitlesInput${i}-output.txt"
+  java -jar NoelLim/KWIC.jar "${folder}/Titles${i}.txt" "${folder}/Ignored${i}.txt" "${folder}/Required${i}.txt"
+
+  cmp --print-chars "${folder}/Output${i}.txt" "${folder}/Titles${i}-output.txt"
+
   if [ $? -eq 0 ]; then
     echo "Test result: PASSED  ${i}"
   else

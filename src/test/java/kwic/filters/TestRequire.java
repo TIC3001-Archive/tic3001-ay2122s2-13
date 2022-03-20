@@ -139,7 +139,7 @@ public class TestRequire {
     }
 
     @Test
-    void Test_Input_ACCEPT_2_SHOULDREJECT_2() {
+    void Test_Input_ACCEPT_2_SHOULDACCEPT_1() {
 
 // arrange inputs
         ArrayList<String> inputLine1 = new ArrayList<String>() {{
@@ -169,12 +169,12 @@ public class TestRequire {
         ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2, inputLine3, inputLine4, inputLine5, inputLine6);
 
         // arrange expected
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES();
+        ArrayList<ArrayList<String>> expected = COLLECT_LINES(inputLine1, inputLine2, inputLine3, inputLine4, inputLine5, inputLine6);
 
         // act
         ArrayList<ArrayList<String>> actual = FILTER_2.filter(input);
         // assert
-        assertEquals(0, actual.size());
+        assertEquals(6, actual.size());
         assertTrue(IS_SAME_LINES(expected, actual));
     }
 }

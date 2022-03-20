@@ -1,6 +1,7 @@
 package kwic.pipes;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Locale;
 import java.util.stream.Collectors;
@@ -8,7 +9,7 @@ import java.util.stream.Collectors;
 public class Pipes {
 
     private static ArrayList<String> splitByBreak(String text) {
-        return new ArrayList<String>(List.of(text.split("\n")));
+        return new ArrayList<String>(text.lines().collect(Collectors.toList()));
     }
 
     private static ArrayList<String> splitBySpace(String text) {
@@ -16,16 +17,16 @@ public class Pipes {
     }
 
     public static ArrayList<String> TO_ITERABLE_KEYWORDS(String content) {
-        return new ArrayList<>(splitByBreak(content).stream().filter(word -> word != "").collect(Collectors.toList()));
+        return new ArrayList<>(splitByBreak(content).stream().filter(word -> !word.equals("")).collect(Collectors.toList()));
     }
 
 
-    public static ArrayList<String> TO_ITERABLE_TITLE(String content) {
-        return new ArrayList<>(splitBySpace(content).stream().filter(word -> word != "").collect(Collectors.toList()));
+    private static ArrayList<String> TO_ITERABLE_TITLE(String content) {
+        return new ArrayList<>(splitBySpace(content).stream().filter(word -> !word.equals("")).collect(Collectors.toList()));
     }
 
     public static ArrayList<ArrayList<String>> TO_ITERABLE_TITLES(String content) {
-        return new ArrayList<>(splitByBreak(content).stream().filter(line -> line != "").map(line -> TO_ITERABLE_TITLE(line)).collect(Collectors.toList()));
+        return new ArrayList<>(splitByBreak(content).stream().filter(line -> !line.equals("")).map(line -> TO_ITERABLE_TITLE(line)).collect(Collectors.toList()));
     }
 
 
@@ -63,7 +64,7 @@ public class Pipes {
             alphabetized.add(words);
         }
 
-        alphabetized.sort((ArrayList<String> a, ArrayList<String> b) -> String.join(" ", a).toLowerCase(Locale.ROOT).compareTo(String.join(" ", b).toLowerCase(Locale.ROOT)));
+        alphabetized.sort(Comparator.comparing((ArrayList<String> a) -> String.join(" ", a).toLowerCase(Locale.ROOT)));
         return alphabetized;
     }
 

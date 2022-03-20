@@ -7,15 +7,16 @@ import java.util.Arrays;
 
 import static kwic.TestKWICUtils.COLLECT_LINES;
 import static kwic.TestKWICUtils.IS_SAME_LINES;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TestFilter {
+public class TestRequire {
 
-    private static final ArrayList<String> IGNORES_1 = new ArrayList<String>(Arrays.asList("is", "a"));
-    private static final ArrayList<String> IGNORES_2 = new ArrayList<String>();
+    private static final ArrayList<String> REQUIRES_1 = new ArrayList<String>(Arrays.asList("is", "a"));
+    private static final ArrayList<String> REQUIRES_2 = new ArrayList<String>();
 
-    private static FilterInterface FILTER_1 = Filters.NEW_FILTER_REQUIRE(TestFilter.IGNORES_1);
-    private static FilterInterface FILTER_2 = Filters.NEW_FILTER_REQUIRE(TestFilter.IGNORES_2);
+    private static FilterInterface FILTER_1 = Filters.NEW_FILTER_REQUIRE(TestRequire.REQUIRES_1);
+    private static FilterInterface FILTER_2 = Filters.NEW_FILTER_REQUIRE(TestRequire.REQUIRES_2);
 
     @Test
     void Test_Input_Empty() {
@@ -88,7 +89,6 @@ public class TestFilter {
         // arrange expected
         ArrayList<ArrayList<String>> expected = input;
 
-        
 
         // act
         ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
@@ -129,7 +129,6 @@ public class TestFilter {
         // arrange expected
         ArrayList<ArrayList<String>> expected = COLLECT_LINES();
 
-        
 
         // act
         ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
@@ -175,6 +174,7 @@ public class TestFilter {
         // act
         ArrayList<ArrayList<String>> actual = FILTER_2.filter(input);
         // assert
+        assertEquals(0, actual.size());
         assertTrue(IS_SAME_LINES(expected, actual));
     }
 }

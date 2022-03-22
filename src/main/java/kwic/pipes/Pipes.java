@@ -13,7 +13,7 @@ public class Pipes {
     }
 
     private static ArrayList<String> splitBySpace(String text) {
-        return new ArrayList<String>(List.of(text.split(" ")));
+        return new ArrayList<>(List.of(text.split(" ")));
     }
 
     public static ArrayList<String> TO_ITERABLE_KEYWORDS(String content) {
@@ -31,7 +31,7 @@ public class Pipes {
 
 
     public static String TO_STRING(ArrayList<ArrayList<String>> _lines) {
-        ArrayList<String> lines = new ArrayList<String>();
+        ArrayList<String> lines = new ArrayList<>();
         for (ArrayList<String> _line : _lines) {
             String line = String.join(" ", _line);
             lines.add(line);

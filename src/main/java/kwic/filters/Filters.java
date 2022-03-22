@@ -38,7 +38,7 @@ public class Filters {
         for (String require : requireList) {
             requireSet.add(require.toLowerCase(Locale.ROOT));
         }
-        PredicateInterface p = word -> requireSet.contains(word.toLowerCase(Locale.ROOT));
+
         return NEW_FILTER(requireSet.size() == 0 ? __ -> true : word -> requireSet.contains(word.toLowerCase(Locale.ROOT)));
     }
 }

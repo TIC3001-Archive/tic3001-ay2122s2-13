@@ -30,7 +30,6 @@ public class Pipes {
     }
 
 
-
     public static String TO_STRING(ArrayList<ArrayList<String>> _lines) {
         ArrayList<String> lines = new ArrayList<String>();
         for (ArrayList<String> _line : _lines) {

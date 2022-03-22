@@ -7,7 +7,6 @@
 
 // TODO
 
-
 ## Development
 
 ### Environment
@@ -26,7 +25,6 @@ The authoritative test script for error detection is found at [./run-integration
 4. Compile to bytecode.
 5. Package into jar.
 6. Integration test against jar.
-
 
 #### Local Test
 

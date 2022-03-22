@@ -88,7 +88,6 @@ public class TestIgnore {
         // arrange expected
         ArrayList<ArrayList<String>> expected = COLLECT_LINES();
 
-        
 
         // act
         ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
@@ -129,7 +128,6 @@ public class TestIgnore {
         // arrange expected
         ArrayList<ArrayList<String>> expected = input;
 
-        
 
         // act
         ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
@@ -172,7 +170,6 @@ public class TestIgnore {
         // arrange expected
         ArrayList<ArrayList<String>> expected = input;
 
-        
 
         // act
         ArrayList<ArrayList<String>> actual = FILTER_2.filter(input);

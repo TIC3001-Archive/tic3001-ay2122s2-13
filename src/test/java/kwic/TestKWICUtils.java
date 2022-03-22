@@ -17,7 +17,6 @@ public class TestKWICUtils {
     }
 
 
-
     public static boolean IS_SAME_LINES(ArrayList<ArrayList<String>> expected, ArrayList<ArrayList<String>> actual) {
         int size = expected.size();
         if (size != actual.size()) {

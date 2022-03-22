@@ -13,16 +13,16 @@ public class TestToString {
 
     @Test
     void Test_Input_Empty() {
-      ArrayList<ArrayList<String>> expected = COLLECT_LINES();
-      String actual =  Pipes.TO_STRING(expected);
-      assertTrue(actual.equals(""));
+        ArrayList<ArrayList<String>> expected = COLLECT_LINES();
+        String actual = Pipes.TO_STRING(expected);
+        assertTrue(actual.equals(""));
     }
 
 
     @Test
     void Test_Input_SingleWordLine() {
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")));
-        String actual =  Pipes.TO_STRING(expected);
+        String actual = Pipes.TO_STRING(expected);
 
 
         assertTrue(actual.equals("a"));
@@ -31,19 +31,20 @@ public class TestToString {
 
     @Test
     void Test_Input_SingleWordLines() {
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")),new ArrayList<String>(List.of("b")));
-        String actual =  Pipes.TO_STRING(expected);
+        ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")), new ArrayList<String>(List.of("b")));
+        String actual = Pipes.TO_STRING(expected);
 
         assertTrue(actual.equals("a\nb"));
 
     }
+
     @Test
     void Test_Input_MultipleLines() {
-        ArrayList<String> expectedLine1 = new ArrayList<String>(List.of("a","d"));
+        ArrayList<String> expectedLine1 = new ArrayList<String>(List.of("a", "d"));
         ArrayList<String> expectedLine2 = new ArrayList<String>(List.of("b"));
         ArrayList<String> expectedLine3 = new ArrayList<String>(List.of("c"));
-        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1,expectedLine2,expectedLine3);
-        String actual =  Pipes.TO_STRING(expected);
+        ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2, expectedLine3);
+        String actual = Pipes.TO_STRING(expected);
 
         assertTrue(actual.equals("a d\nb\nc"));
 

@@ -11,8 +11,8 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestRequire {
 
-    private static final ArrayList<String> REQUIRES_1 = new ArrayList<String>(Arrays.asList("is", "a"));
-    private static final ArrayList<String> REQUIRES_2 = new ArrayList<String>();
+    private static final ArrayList<String> REQUIRES_1 = new ArrayList<>(Arrays.asList("is", "a"));
+    private static final ArrayList<String> REQUIRES_2 = new ArrayList<>();
 
     private static final FilterInterface FILTER_1 = Filters.NEW_FILTER_REQUIRE(TestRequire.REQUIRES_1);
     private static final FilterInterface FILTER_2 = Filters.NEW_FILTER_REQUIRE(TestRequire.REQUIRES_2);

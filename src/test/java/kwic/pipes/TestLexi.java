@@ -75,11 +75,11 @@ public class TestLexi {
     @Test
     void Test_Input_TwoSortedLinesWithOneWord() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("a");
         }};
 
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
+        ArrayList<String> inputLine2 = new ArrayList<>() {{
             add("b");
         }};
 
@@ -100,12 +100,12 @@ public class TestLexi {
     @Test
     void Test_Input_TwoUnsortedSortedLinesWithTwoWords_1() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("c");
             add("d");
         }};
 
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
+        ArrayList<String> inputLine2 = new ArrayList<>() {{
             add("a");
             add("b");
         }};
@@ -125,12 +125,12 @@ public class TestLexi {
     @Test
     void Test_Input_TwoUnsortedSortedLinesWithTwoWords_2() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("c");
             add("d");
         }};
 
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
+        ArrayList<String> inputLine2 = new ArrayList<>() {{
             add("c");
             add("b");
         }};
@@ -150,13 +150,13 @@ public class TestLexi {
     @Test
     void Test_Input_TwoLinesWithThreeWords_1() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("d");
             add("e");
             add("f");
         }};
 
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
+        ArrayList<String> inputLine2 = new ArrayList<>() {{
             add("a");
             add("b");
             add("c");
@@ -177,13 +177,13 @@ public class TestLexi {
     @Test
     void Test_Input_TwoLinesWithThreeWords_2() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("d");
             add("e");
             add("f");
         }};
 
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
+        ArrayList<String> inputLine2 = new ArrayList<>() {{
             add("d");
             add("e");
             add("c");
@@ -204,13 +204,13 @@ public class TestLexi {
     @Test
     void Test_Input_TwoLinesWithThreeWords_3_ShouldBeCaseInsensitive() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("D");
             add("e");
             add("c");
         }};
 
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
+        ArrayList<String> inputLine2 = new ArrayList<>() {{
             add("d");
             add("e");
             add("c");
@@ -232,11 +232,11 @@ public class TestLexi {
     @Test
     void Test_Input_TwoLinesWithIrregularWordCounts() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("e");
             add("f");
         }};
-        ArrayList<String> inputLine2 = new ArrayList<String>() {{
+        ArrayList<String> inputLine2 = new ArrayList<>() {{
             add("a");
             add("b");
             add("c");

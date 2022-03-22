@@ -42,6 +42,6 @@ public class TestKWICUtils {
     }
 
     public static ArrayList<String> CREATE_LINE(String... words){
-        return new ArrayList<String>(List.of(words));
+        return new ArrayList<>(List.of(words));
     }
 }

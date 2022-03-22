@@ -23,7 +23,7 @@ public class TestShift {
     @Test
     void Test_Input_OneLineWithOneWord() {
         // arrange inputs
-        ArrayList<String> inputLine1 = new ArrayList<String>() {{
+        ArrayList<String> inputLine1 = new ArrayList<>() {{
             add("a");
         }};
         ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1);

@@ -2,9 +2,10 @@
 
 # source code test
 mvn clean
+mvn test
 mvn install
 mvn compile
-mvn test
+
 
 # package into jar
 mvn package
@@ -13,7 +14,7 @@ mvn package
 test_codes=("1" "2" "3")
 
 echo "running test"
-blankfiledir="./sample_test_cases/blank.txt"
+
 for i in "${test_codes[@]}"; do
 
   folder="./sample_test_cases/Test${i}"

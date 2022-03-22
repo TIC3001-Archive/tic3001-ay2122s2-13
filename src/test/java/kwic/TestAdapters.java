@@ -63,15 +63,15 @@ public class TestAdapters {
         assertEquals(2, sourceLines.get(5).size());
         assertEquals(2, sourceLines.get(6).size());
         assertEquals(2, sourceLines.get(7).size());
-//
+
         ArrayList<ArrayList<String>> shiftedLines = SHIFT(sourceLines);
-//
+
         assertEquals(17, shiftedLines.size());
 
-//
-//
+
+
         ArrayList<ArrayList<String>> sortedShiftedLines = LEXI(shiftedLines);
-//
+
         assertEquals(17, sortedShiftedLines.size());
         assertEquals("at", sortedShiftedLines.get(0).get(0));
         assertEquals("the", sortedShiftedLines.get(0).get(1));
@@ -96,14 +96,13 @@ public class TestAdapters {
         assertEquals(17, whiteList.size());
 
 
-        String requirePath = "./sample_test_cases/Test1/Ignored1.txt";
+        String requirePath = "./sample_test_cases/Test1/Required1.txt";
         ArrayList<String> requires = TO_ITERABLE_KEYWORDS(READ(requirePath));
         FilterInterface fRequire = Filters.NEW_FILTER_REQUIRE(requires);
         ArrayList<ArrayList<String>> greenList = fRequire.filter(sortedShiftedLines);
         assertEquals(17, greenList.size());
 
         String output = TO_STRING(greenList);
-
 
         String outputPath = sourcePath.replace(".txt", "-output.txt");
         WriterInterface pWriter = Writer.NEW_WRITE(outputPath);

@@ -1,6 +1,8 @@
 package kwic;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class TestKWICUtils {
     public static boolean IS_SAME_WORDS(ArrayList<String> expected, ArrayList<String> actual) {
@@ -30,13 +32,16 @@ public class TestKWICUtils {
         return true;
     }
 
+    @SafeVarargs
     public static ArrayList<ArrayList<String>> COLLECT_LINES(ArrayList<String>... additions) {
 
-        ArrayList<ArrayList<String>> inputs = new ArrayList<ArrayList<String>>();
+        ArrayList<ArrayList<String>> inputs = new ArrayList<>();
 
-        for (ArrayList<String> addition : additions) {
-            inputs.add(addition);
-        }
+        Collections.addAll(inputs, additions);
         return inputs;
+    }
+
+    public static ArrayList<String> CREATE_LINE(String... words){
+        return new ArrayList<String>(List.of(words));
     }
 }

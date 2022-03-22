@@ -5,15 +5,12 @@ import kwic.filters.Filters;
 import kwic.kwicio.Writer;
 import kwic.kwicio.WriterInterface;
 
-
-import java.nio.file.Path;
-
 import static kwic.kwicio.Reader.READ;
 import static kwic.pipes.Pipes.*;
 
 public class Main {
 
-    public static void main(String[] args) throws Exception {
+    public static void main(String[] args) {
 
         String pathTitle = args[0];
         String pathIgnore = args[1];

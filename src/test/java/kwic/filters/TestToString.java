@@ -1,5 +1,6 @@
-package kwic.pipes;
+package kwic.filters;
 
+import kwic.filters.Filters;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -13,7 +14,7 @@ public class TestToString {
     @Test
     void Test_Input_Empty() {
         ArrayList<ArrayList<String>> expected = COLLECT_LINES();
-        String actual = Pipes.TO_STRING(expected);
+        String actual = Filters.STRINGIFY(expected);
         assertEquals("", actual);
     }
 
@@ -21,7 +22,7 @@ public class TestToString {
     @Test
     void Test_Input_SingleWordLine() {
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")));
-        String actual = Pipes.TO_STRING(expected);
+        String actual = Filters.STRINGIFY(expected);
 
         assertEquals("a", actual);
     }
@@ -29,7 +30,7 @@ public class TestToString {
     @Test
     void Test_Input_SingleWordLines() {
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")), new ArrayList<String>(List.of("b")));
-        String actual = Pipes.TO_STRING(expected);
+        String actual = Filters.STRINGIFY(expected);
 
         assertEquals("a\nb", actual);
     }
@@ -40,7 +41,7 @@ public class TestToString {
         ArrayList<String> expectedLine2 = new ArrayList<String>(List.of("b"));
         ArrayList<String> expectedLine3 = new ArrayList<String>(List.of("c"));
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2, expectedLine3);
-        String actual = Pipes.TO_STRING(expected);
+        String actual = Filters.STRINGIFY(expected);
 
         assertEquals("a d\nb\nc", actual);
     }

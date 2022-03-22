@@ -1,5 +1,6 @@
-package kwic.pipes;
+package kwic.filters;
 
+import kwic.filters.Filters;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class TestToIterableLines {
     void Test_Input_Empty() {
         String input = "";
         ArrayList<ArrayList<String>> expected = COLLECT_LINES();
-        ArrayList<ArrayList<String>> actual = Pipes.TO_ITERABLE_TITLES(input);
+        ArrayList<ArrayList<String>> actual = Filters.ITERATE_TITLES(input);
 
         assertEquals(0, actual.size());
         assertTrue(IS_SAME_LINES(expected, actual));
@@ -27,7 +28,7 @@ public class TestToIterableLines {
     void Test_Input_SingleWordLine() {
         String input = "a";
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<>(List.of("a")));
-        ArrayList<ArrayList<String>> actual = Pipes.TO_ITERABLE_TITLES(input);
+        ArrayList<ArrayList<String>> actual = Filters.ITERATE_TITLES(input);
 
         assertEquals(1, actual.size());
         assertTrue(IS_SAME_LINES(expected, actual));
@@ -37,7 +38,7 @@ public class TestToIterableLines {
     void Test_Input_SingleWordLines() {
         String input = "a\nb";
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<>(List.of("a")), new ArrayList<>(List.of("b")));
-        ArrayList<ArrayList<String>> actual = Pipes.TO_ITERABLE_TITLES(input);
+        ArrayList<ArrayList<String>> actual = Filters.ITERATE_TITLES(input);
 
         assertEquals(2, actual.size());
         assertEquals("b", actual.get(1).get(0));
@@ -52,7 +53,7 @@ public class TestToIterableLines {
         ArrayList<String> expectedLine2 = new ArrayList<>(List.of("b"));
         ArrayList<String> expectedLine3 = new ArrayList<>(List.of("c"));
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2, expectedLine3);
-        ArrayList<ArrayList<String>> actual = Pipes.TO_ITERABLE_TITLES(input);
+        ArrayList<ArrayList<String>> actual = Filters.ITERATE_TITLES(input);
 
         assertEquals(3, actual.size());
         assertTrue(IS_SAME_LINES(expected, actual));

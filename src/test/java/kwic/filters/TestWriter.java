@@ -1,8 +1,9 @@
-package kwic.kwicio;
+package kwic.filters;
 
+import kwic.kwicio.Writer;
+import kwic.kwicio.WriterInterface;
 import org.junit.jupiter.api.Test;
 
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 

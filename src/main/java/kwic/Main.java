@@ -14,8 +14,8 @@ public class Main {
         String pathIgnore = args[1];
         String pathRequired = args[2];
 
-        Selector.SelectionInterface fIgnore = Selector.NEW_FILTER_IGNORE(Adapter.ITERATE_KEYWORDS_LSV(READ(pathIgnore)));
-        Selector.SelectionInterface fRequire = Selector.NEW_FILTER_REQUIRE(Adapter.ITERATE_KEYWORDS_LSV(READ(pathRequired)));
+        Selector.SelectionInterface fIgnore = Selector.NEW_FILTER_IGNORE(Adapter.ITERATE_KEYWORDS(READ(pathIgnore)));
+        Selector.SelectionInterface fRequire = Selector.NEW_FILTER_REQUIRE(Adapter.ITERATE_KEYWORDS(READ(pathRequired)));
         WriterInterface pWriter = Writer.NEW_WRITE(pathTitle.replace(".txt", "-output.txt"));
         pWriter.write(Adapter.STRINGIFY(fRequire.filter(fIgnore.filter(Transformer.LEXI((Transformer.SHIFT(Adapter.ITERATE_TITLES(READ(pathTitle)))))))));
     }

@@ -88,7 +88,7 @@ public class TestAdapters {
         assertEquals("World", sortedShiftedLines.get(16).get(0));
 
         String ignorePath = "./sample_test_cases/Test1/Ignored1.txt";
-        ArrayList<String> ignores = Adapter.ITERATE_KEYWORDS_LSV(READ(ignorePath));
+        ArrayList<String> ignores = Adapter.ITERATE_KEYWORDS(READ(ignorePath));
 
         assertEquals(0, ignores.size());
         Selector.SelectionInterface fIgnore = Selector.NEW_FILTER_IGNORE(ignores);
@@ -97,7 +97,7 @@ public class TestAdapters {
 
 
         String requirePath = "./sample_test_cases/Test1/Required1.txt";
-        ArrayList<String> requires = Adapter.ITERATE_KEYWORDS_LSV(READ(requirePath));
+        ArrayList<String> requires = Adapter.ITERATE_KEYWORDS(READ(requirePath));
         Selector.SelectionInterface fRequire = Selector.NEW_FILTER_REQUIRE(requires);
         ArrayList<ArrayList<String>> greenList = fRequire.filter(sortedShiftedLines);
         assertEquals(17, greenList.size());

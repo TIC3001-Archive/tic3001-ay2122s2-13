@@ -13,16 +13,12 @@ public class Adapter {
         return new ArrayList<>(List.of(text.split(" ")));
     }
 
-    public static ArrayList<String> ITERATE_KEYWORDS_LSV(String content) {
-        return splitByLine(content).stream().filter(word -> !word.equals("")).collect(Collectors.toCollection(ArrayList::new));
+    public static ArrayList<String> ITERATE_KEYWORDS(String fileContent) {
+        return splitByLine(fileContent).stream().filter(word -> !word.equals("")).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static ArrayList<String> ITERATE_TITLE(String content) {
-        return splitBySpace(content).stream().filter(word -> !word.equals("")).collect(Collectors.toCollection(ArrayList::new));
-    }
-
-    public static ArrayList<ArrayList<String>> ITERATE_TITLES(String content) {
-        return splitByLine(content).stream().filter(line -> !line.equals("")).map(Adapter::ITERATE_TITLE).collect(Collectors.toCollection(ArrayList::new));
+    public static ArrayList<ArrayList<String>> ITERATE_TITLES(String fileContent) {
+        return splitByLine(fileContent).stream().filter(line -> !line.equals("")).map(line -> splitBySpace(line)).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static String STRINGIFY(ArrayList<ArrayList<String>> _lines) {

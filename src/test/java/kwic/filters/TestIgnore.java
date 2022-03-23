@@ -68,7 +68,7 @@ public class TestIgnore {
     @Test
     void Test_Input_INGORE_1_SHOULDACCEPT_1() {
 
-// arrange inputs
+        // arrange inputs
         ArrayList<String> inputLine1 = CREATE_LINE("isa");
         ArrayList<String> inputLine2 = CREATE_LINE("some","Is");
         ArrayList<String> inputLine3 = CREATE_LINE("some","is");
@@ -94,7 +94,7 @@ public class TestIgnore {
     @Test
     void Test_Input_INGORE_2_SHOULDACCEPT_1() {
 
-// arrange inputs
+        // arrange inputs
         ArrayList<String> inputLine1 = CREATE_LINE("isa");
         ArrayList<String> inputLine2 = CREATE_LINE("some","Is");
         ArrayList<String> inputLine3 = CREATE_LINE("some","is");

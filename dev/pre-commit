@@ -1,0 +1,3 @@
+#!/bin/bash
+# This file is a git hook.
+./run-integration-test.sh

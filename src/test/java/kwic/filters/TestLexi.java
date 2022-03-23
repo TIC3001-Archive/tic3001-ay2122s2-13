@@ -1,6 +1,5 @@
 package kwic.filters;
 
-import kwic.filters.Filters;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -14,7 +13,7 @@ public class TestLexi {
     @Test
     void Test_Input_Empty() {
         ArrayList<ArrayList<String>> input = new ArrayList<>();
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         ArrayList<ArrayList<String>> expected = input;
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -31,7 +30,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -49,7 +48,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -68,7 +67,7 @@ public class TestLexi {
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1);
 
         // act
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -93,7 +92,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -118,7 +117,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -143,7 +142,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -170,7 +169,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -197,7 +196,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -224,7 +223,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }
@@ -253,7 +252,7 @@ public class TestLexi {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Filters.LEXI(input);
+        ArrayList<ArrayList<String>> actual = Transformer.LEXI(input);
         // assert
         assertTrue(IS_SAME_LINES(expected, actual));
     }

@@ -1,6 +1,5 @@
 package kwic.filters;
 
-import kwic.filters.Filters;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ public class TestToIterableKeywords {
     void Test_Input_Empty() {
         String input = "";
         ArrayList<String> expected = new ArrayList<>();
-        ArrayList<String> actual = Filters.ITERATE_KEYWORDS_LSV(input);
+        ArrayList<String> actual = Adapter.ITERATE_KEYWORDS_LSV(input);
 
         assertEquals(0, actual.size());
         assertTrue(IS_SAME_WORDS(expected, actual));
@@ -26,7 +25,7 @@ public class TestToIterableKeywords {
     void Test_Input_SingleWord() {
         String input = "a";
         ArrayList<String> expected = new ArrayList<>(List.of("a"));
-        ArrayList<String> actual = Filters.ITERATE_KEYWORDS_LSV(input);
+        ArrayList<String> actual = Adapter.ITERATE_KEYWORDS_LSV(input);
 
         assertEquals(1, actual.size());
         assertTrue(IS_SAME_WORDS(expected, actual));
@@ -36,7 +35,7 @@ public class TestToIterableKeywords {
     void Test_Input_TwoWords() {
         String input = "a\nb";
         ArrayList<String> expected = new ArrayList<>(List.of("a", "b"));
-        ArrayList<String> actual = Filters.ITERATE_KEYWORDS_LSV(input);
+        ArrayList<String> actual = Adapter.ITERATE_KEYWORDS_LSV(input);
         assertEquals(actual.size(), 2);
         assertEquals(2, expected.size());
         assertEquals("a", expected.get(0));
@@ -48,7 +47,7 @@ public class TestToIterableKeywords {
     void Test_Input_ThreeWords() {
         String input = "a\nb\nc";
         ArrayList<String> expected = new ArrayList<>(List.of("a", "b", "c"));
-        ArrayList<String> actual = Filters.ITERATE_KEYWORDS_LSV(input);
+        ArrayList<String> actual = Adapter.ITERATE_KEYWORDS_LSV(input);
         assertEquals(3, actual.size());
         assertEquals(3, expected.size());
         assertEquals("a", expected.get(0));

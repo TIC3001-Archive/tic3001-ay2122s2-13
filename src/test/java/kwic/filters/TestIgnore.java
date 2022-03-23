@@ -13,8 +13,8 @@ public class TestIgnore {
     private static final ArrayList<String> IGNORES_1 = new ArrayList<>(Arrays.asList("is", "a"));
     private static final ArrayList<String> IGNORES_2 = new ArrayList<>();
 
-    private static final FilterInterface FILTER_1 = Filters.NEW_FILTER_IGNORE(TestIgnore.IGNORES_1);
-    private static final FilterInterface FILTER_2 = Filters.NEW_FILTER_IGNORE(TestIgnore.IGNORES_2);
+    private static final Selector.SelectionInterface FILTER_1 = Selector.NEW_FILTER_IGNORE(TestIgnore.IGNORES_1);
+    private static final Selector.SelectionInterface FILTER_2 = Selector.NEW_FILTER_IGNORE(TestIgnore.IGNORES_2);
 
     @Test
     void Test_Input_Empty() {

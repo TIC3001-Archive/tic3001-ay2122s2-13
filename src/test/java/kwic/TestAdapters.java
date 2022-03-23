@@ -1,7 +1,8 @@
 package kwic;
 
-import kwic.filters.FilterInterface;
-import kwic.filters.Filters;
+import kwic.filters.Adapter;
+import kwic.filters.Selector;
+import kwic.filters.Transformer;
 import kwic.kwicio.Writer;
 import kwic.kwicio.WriterInterface;
 import org.junit.jupiter.api.Test;
@@ -17,11 +18,11 @@ public class TestAdapters {
     void Test_Assignment2_Core_001() {
 
         String txtSource = "Back to the Future";
-        ArrayList<ArrayList<String>> sourceLines = Filters.ITERATE_TITLES(txtSource);
+        ArrayList<ArrayList<String>> sourceLines = Adapter.ITERATE_TITLES(txtSource);
         assertEquals(1, sourceLines.size());
         assertEquals(4, sourceLines.get(0).size());
 
-        ArrayList<ArrayList<String>> shiftedLines = Filters.SHIFT(sourceLines);
+        ArrayList<ArrayList<String>> shiftedLines = Transformer.SHIFT(sourceLines);
 
         assertEquals(4, shiftedLines.size());
         assertEquals("Back", shiftedLines.get(0).get(0));
@@ -30,7 +31,7 @@ public class TestAdapters {
         assertEquals("Future", shiftedLines.get(3).get(0));
 
 
-        ArrayList<ArrayList<String>> sortedShiftedLines = Filters.LEXI(shiftedLines);
+        ArrayList<ArrayList<String>> sortedShiftedLines = Transformer.LEXI(shiftedLines);
 
         assertEquals(4, sortedShiftedLines.size());
         assertEquals("Back", sortedShiftedLines.get(0).get(0));
@@ -38,7 +39,7 @@ public class TestAdapters {
         assertEquals("the", sortedShiftedLines.get(2).get(0));
         assertEquals("to", sortedShiftedLines.get(3).get(0));
 
-        String output = Filters.STRINGIFY(sortedShiftedLines);
+        String output = Adapter.STRINGIFY(sortedShiftedLines);
 
         assertEquals("Back to the Future\nFuture Back to the\nthe Future Back to\nto the Future Back", output);
 
@@ -50,7 +51,7 @@ public class TestAdapters {
         String sourcePath = "./sample_test_cases/Test1/Titles1.txt";
         String txtSource = READ(sourcePath);
 
-        ArrayList<ArrayList<String>> sourceLines = Filters.ITERATE_TITLES(txtSource);
+        ArrayList<ArrayList<String>> sourceLines = Adapter.ITERATE_TITLES(txtSource);
 
 
         assertEquals(8, sourceLines.size());
@@ -63,13 +64,13 @@ public class TestAdapters {
         assertEquals(2, sourceLines.get(6).size());
         assertEquals(2, sourceLines.get(7).size());
 
-        ArrayList<ArrayList<String>> shiftedLines = Filters.SHIFT(sourceLines);
+        ArrayList<ArrayList<String>> shiftedLines = Transformer.SHIFT(sourceLines);
 
         assertEquals(17, shiftedLines.size());
 
 
 
-        ArrayList<ArrayList<String>> sortedShiftedLines = Filters.LEXI(shiftedLines);
+        ArrayList<ArrayList<String>> sortedShiftedLines = Transformer.LEXI(shiftedLines);
 
         assertEquals(17, sortedShiftedLines.size());
         assertEquals("at", sortedShiftedLines.get(0).get(0));
@@ -87,21 +88,21 @@ public class TestAdapters {
         assertEquals("World", sortedShiftedLines.get(16).get(0));
 
         String ignorePath = "./sample_test_cases/Test1/Ignored1.txt";
-        ArrayList<String> ignores = Filters.ITERATE_KEYWORDS_LSV(READ(ignorePath));
+        ArrayList<String> ignores = Adapter.ITERATE_KEYWORDS_LSV(READ(ignorePath));
 
         assertEquals(0, ignores.size());
-        FilterInterface fIgnore = Filters.NEW_FILTER_IGNORE(ignores);
+        Selector.SelectionInterface fIgnore = Selector.NEW_FILTER_IGNORE(ignores);
         ArrayList<ArrayList<String>> whiteList = fIgnore.filter(sortedShiftedLines);
         assertEquals(17, whiteList.size());
 
 
         String requirePath = "./sample_test_cases/Test1/Required1.txt";
-        ArrayList<String> requires = Filters.ITERATE_KEYWORDS_LSV(READ(requirePath));
-        FilterInterface fRequire = Filters.NEW_FILTER_REQUIRE(requires);
+        ArrayList<String> requires = Adapter.ITERATE_KEYWORDS_LSV(READ(requirePath));
+        Selector.SelectionInterface fRequire = Selector.NEW_FILTER_REQUIRE(requires);
         ArrayList<ArrayList<String>> greenList = fRequire.filter(sortedShiftedLines);
         assertEquals(17, greenList.size());
 
-        String output = Filters.STRINGIFY(greenList);
+        String output = Adapter.STRINGIFY(greenList);
 
         String outputPath = sourcePath.replace(".txt", "-output.txt");
         WriterInterface pWriter = Writer.NEW_WRITE(outputPath);

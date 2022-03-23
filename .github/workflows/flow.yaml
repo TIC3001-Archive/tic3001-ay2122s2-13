@@ -1,5 +1,5 @@
 name: GitHub Actions
-on: [ push ]
+on: [push]
 jobs:
   Explore-GitHub-Actions:
     runs-on: ubuntu-latest
@@ -14,8 +14,8 @@ jobs:
       - name: Install JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '11'
-          distribution: 'temurin'
+          java-version: "11"
+          distribution: "temurin"
       - name: Run integration test using maven
         run: ./run-integration-test.sh
       - name: After run status

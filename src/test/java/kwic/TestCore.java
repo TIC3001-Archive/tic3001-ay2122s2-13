@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import static kwic.filters.IO.READ;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestAdapters {
+public class TestCore {
 
     @Test
     void Test_Assignment2_Core_001() {
@@ -90,21 +90,21 @@ public class TestAdapters {
         ArrayList<String> ignores = Adapter.ITERATE_KEYWORDS(READ(ignorePath));
 
         assertEquals(0, ignores.size());
-        Selector.SelectionInterface fIgnore = Selector.NEW_FILTER_IGNORE(ignores);
+        Selector.SelectionFilter fIgnore = Selector.NEW_FILTER_IGNORE(ignores);
         ArrayList<ArrayList<String>> whiteList = fIgnore.filter(sortedShiftedLines);
         assertEquals(17, whiteList.size());
 
 
         String requirePath = "./sample_test_cases/Test1/Required1.txt";
         ArrayList<String> requires = Adapter.ITERATE_KEYWORDS(READ(requirePath));
-        Selector.SelectionInterface fRequire = Selector.NEW_FILTER_REQUIRE(requires);
+        Selector.SelectionFilter fRequire = Selector.NEW_FILTER_REQUIRE(requires);
         ArrayList<ArrayList<String>> greenList = fRequire.filter(sortedShiftedLines);
         assertEquals(17, greenList.size());
 
         String output = Adapter.STRINGIFY(greenList);
 
         String outputPath = sourcePath.replace(".txt", "-output.txt");
-        IO.WriterInterface pWriter = IO.NEW_WRITE(outputPath);
+        IO.WriteFilter pWriter = IO.NEW_WRITE(outputPath);
         pWriter.write(output);
     }
 

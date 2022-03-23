@@ -3,10 +3,11 @@ package kwic.filters;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class Adapter {
-    private static ArrayList<String> splitByLine(String text) {
-        return text.lines().collect(Collectors.toCollection(ArrayList::new));
+    private static Stream<String> splitByLine(String text) {
+        return text.lines();
     }
 
     private static ArrayList<String> splitBySpace(String text) {
@@ -14,11 +15,11 @@ public class Adapter {
     }
 
     public static ArrayList<String> ITERATE_KEYWORDS(String fileContent) {
-        return splitByLine(fileContent).stream().filter(word -> !word.equals("")).collect(Collectors.toCollection(ArrayList::new));
+        return splitByLine(fileContent).filter(word -> !word.equals("")).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static ArrayList<ArrayList<String>> ITERATE_TITLES(String fileContent) {
-        return splitByLine(fileContent).stream().filter(line -> !line.equals("")).map(line -> splitBySpace(line)).collect(Collectors.toCollection(ArrayList::new));
+        return splitByLine(fileContent).filter(line -> !line.equals("")).map(Adapter::splitBySpace).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static String STRINGIFY(ArrayList<ArrayList<String>> _lines) {

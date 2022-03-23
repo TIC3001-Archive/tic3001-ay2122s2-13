@@ -24,7 +24,7 @@ The authoritative test script for error detection is found at [./run-integration
 3. Install dependencies.
 4. Compile to bytecode.
 5. Package into jar.
-6. Integration test against jar.
+6. System test against jar.
 
 #### Local Test
 

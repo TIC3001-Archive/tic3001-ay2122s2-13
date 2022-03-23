@@ -15,7 +15,7 @@ public class TestWriter {
         for (int i = 0; i < length; i++) {
             String input = inputs[i];
             String pathString = "./residue/test_read_source_" + i + ".txt";
-            IO.WriterInterface writer = IO.NEW_WRITE(pathString);
+            IO.WriteFilter writer = IO.NEW_WRITE(pathString);
             writer.write(input);
             try {
                 String actual = Files.readString(Path.of(pathString));

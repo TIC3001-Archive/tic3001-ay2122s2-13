@@ -14,8 +14,8 @@ public class TestRequire {
     private static final ArrayList<String> REQUIRES_1 = new ArrayList<>(Arrays.asList("is", "a"));
     private static final ArrayList<String> REQUIRES_2 = new ArrayList<>();
 
-    private static final Selector.SelectionInterface FILTER_1 = Selector.NEW_FILTER_REQUIRE(TestRequire.REQUIRES_1);
-    private static final Selector.SelectionInterface FILTER_2 = Selector.NEW_FILTER_REQUIRE(TestRequire.REQUIRES_2);
+    private static final Selector.SelectionFilter FILTER_1 = Selector.NEW_FILTER_REQUIRE(TestRequire.REQUIRES_1);
+    private static final Selector.SelectionFilter FILTER_2 = Selector.NEW_FILTER_REQUIRE(TestRequire.REQUIRES_2);
 
     @Test
     void Test_Input_Empty() {

@@ -13,7 +13,7 @@ public class IO {
         }
     }
 
-    public static WriterInterface NEW_WRITE(String pathString) {
+    public static WriteFilter NEW_WRITE(String pathString) {
         return output -> {
             try {
                 Files.write(Path.of(pathString), output.getBytes(StandardCharsets.UTF_8));
@@ -22,7 +22,7 @@ public class IO {
         };
     }
 
-    public static interface WriterInterface {
+    public interface WriteFilter {
         void write(String output);
     }
 }

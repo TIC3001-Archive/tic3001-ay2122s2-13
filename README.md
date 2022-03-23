@@ -6,6 +6,10 @@
 ` ` Assignment Report
 
 // TODO
+    Add previous exercise
+
+// TODO 
+    This readme
 
 ## Development
 

@@ -3,13 +3,12 @@ package kwic;
 import kwic.filters.Adapter;
 import kwic.filters.Selector;
 import kwic.filters.Transformer;
-import kwic.kwicio.Writer;
-import kwic.kwicio.WriterInterface;
+import kwic.filters.IO;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import static kwic.kwicio.Reader.READ;
+import static kwic.filters.IO.READ;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TestAdapters {
@@ -105,7 +104,7 @@ public class TestAdapters {
         String output = Adapter.STRINGIFY(greenList);
 
         String outputPath = sourcePath.replace(".txt", "-output.txt");
-        WriterInterface pWriter = Writer.NEW_WRITE(outputPath);
+        IO.WriterInterface pWriter = IO.NEW_WRITE(outputPath);
         pWriter.write(output);
     }
 

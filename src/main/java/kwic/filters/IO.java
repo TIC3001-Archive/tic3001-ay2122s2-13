@@ -1,12 +1,18 @@
-package kwic.kwicio;
-
+package kwic.filters;
 
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+public class IO {
+    public static String READ(String path) {
+        try {
+            return Files.readString(Path.of(path));
+        } catch (Exception __) {
+            return "";
+        }
+    }
 
-public class Writer {
     public static WriterInterface NEW_WRITE(String pathString) {
         return output -> {
             try {
@@ -14,5 +20,9 @@ public class Writer {
             } catch (Exception ignored) {
             }
         };
+    }
+
+    public static interface WriterInterface {
+        void write(String output);
     }
 }

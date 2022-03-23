@@ -1,7 +1,5 @@
 package kwic.filters;
 
-import kwic.kwicio.Writer;
-import kwic.kwicio.WriterInterface;
 import org.junit.jupiter.api.Test;
 
 import java.nio.file.Files;
@@ -17,7 +15,7 @@ public class TestWriter {
         for (int i = 0; i < length; i++) {
             String input = inputs[i];
             String pathString = "./residue/test_read_source_" + i + ".txt";
-            WriterInterface writer = Writer.NEW_WRITE(pathString);
+            IO.WriterInterface writer = IO.NEW_WRITE(pathString);
             writer.write(input);
             try {
                 String actual = Files.readString(Path.of(pathString));

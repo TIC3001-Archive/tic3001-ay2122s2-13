@@ -3,12 +3,10 @@ package kwic.filters;
 
 import java.util.*;
 
-
-interface PredicateInterface {
-    boolean shouldSelect(String word);
-}
-
 public class Selector {
+    interface PredicateInterface {
+        boolean shouldSelect(String word);
+    }
     public interface SelectionInterface {
         ArrayList<ArrayList<String>> filter(ArrayList<ArrayList<String>> source);
     }
@@ -41,6 +39,7 @@ public class Selector {
         }
         return NEW_SELECTION_FILTER(requireSet.size() == 0 ? __ -> true : word -> requireSet.contains(word.toLowerCase(Locale.ROOT)));
     }
+
 
 
 }

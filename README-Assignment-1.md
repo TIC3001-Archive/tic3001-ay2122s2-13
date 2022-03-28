@@ -1,3 +1,6 @@
+
+This readme is deprecated. Please refer to [README.md](README.md)
+
 # Assignment 1 - KWIC
 
 ## Report

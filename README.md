@@ -1,10 +1,4 @@
 # Assignment 2 - KWIC Extensions
-=======
-
-This readme is deprecated. Please refer to [README.md](README.md)
-
-# Assignment 1 - KWIC
->>>>>>> 8cca2eba00577a87cacc4215e43aecd8dc172e09:README-Assignment-1.md
 
 ## Report
 

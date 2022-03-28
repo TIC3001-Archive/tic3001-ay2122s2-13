@@ -8,9 +8,9 @@ This readme is deprecated. Please refer to [README.md](README.md)
 
 ## Report
 
-```./a1_report.pdf``` Assignment Report // TODO
+```./a1_report.pdf``` Assignment 1 Report
+```./a2_report.pdf``` Assignment 2 Report
 
-// TODO Add previous exercise
 
 ## Repositories
 

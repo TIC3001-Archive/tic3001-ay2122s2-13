@@ -17,7 +17,7 @@ public class Librarian {
         ArrayList<String> manualFileNames = Pipeline.generateEndOfLineDelimitedWordListFromFileName(manualListFileName);
         for (String manualFileName : manualFileNames) {
             String name = manualFileName;
-            ArrayList<ArrayList<String>> concordance = Pipeline.generateConcordance(manualFileName);
+            ArrayList<ArrayList<String>> concordance = Pipeline.fileNameToConcordanceFilter(manualFileName);
             Manual manual = new Manual(name, concordance);
             manuals.add(manual);
         }

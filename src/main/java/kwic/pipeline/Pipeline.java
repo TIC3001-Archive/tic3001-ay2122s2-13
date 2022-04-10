@@ -20,8 +20,8 @@ public class Pipeline {
         return Selector.newFilterRequire((generateEndOfLineDelimitedWordListFromFileName(path)));
     }
 
-    public static ArrayList<ArrayList<String>> generateConcordance(String filename) throws IOException {
-        return (Transformer.lexi((Transformer.shift(Adapter.iterateTitles(read(filename))))));
+    public static ArrayList<ArrayList<String>> fileNameToConcordanceFilter(String filename) throws IOException {
+        return (((Transformer.shift(Adapter.iterateTitles(read(filename))))));
     }
 
     // Takes in filenames 1) containing titles 2) ignored keywords 3) required keywords

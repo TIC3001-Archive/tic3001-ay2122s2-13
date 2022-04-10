@@ -13,15 +13,15 @@ public class TestIgnore {
     private static final ArrayList<String> IGNORES_1 = new ArrayList<>(Arrays.asList("is", "a"));
     private static final ArrayList<String> IGNORES_2 = new ArrayList<>();
 
-    private static final Selector.SelectionFilter FILTER_1 = Selector.NEW_FILTER_IGNORE(TestIgnore.IGNORES_1);
-    private static final Selector.SelectionFilter FILTER_2 = Selector.NEW_FILTER_IGNORE(TestIgnore.IGNORES_2);
+    private static final Selector.SelectionFilter FILTER_1 = Selector.newFilterIgnore(TestIgnore.IGNORES_1);
+    private static final Selector.SelectionFilter FILTER_2 = Selector.newFilterIgnore(TestIgnore.IGNORES_2);
 
     @Test
     void Test_Input_Empty() {
         ArrayList<ArrayList<String>> input = new ArrayList<>();
         ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         ArrayList<ArrayList<String>> expected = input;
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
 
@@ -41,7 +41,7 @@ public class TestIgnore {
         // act
         ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
     @Test
@@ -62,7 +62,7 @@ public class TestIgnore {
         // act
         ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
     @Test
@@ -86,7 +86,7 @@ public class TestIgnore {
         // act
         ArrayList<ArrayList<String>> actual = FILTER_1.filter(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
 
 
     }
@@ -111,7 +111,7 @@ public class TestIgnore {
         // act
         ArrayList<ArrayList<String>> actual = FILTER_2.filter(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
 
 
     }

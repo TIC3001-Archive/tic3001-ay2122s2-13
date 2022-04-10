@@ -1,23 +1,43 @@
 package kwic;
 
-import kwic.filters.Adapter;
-import kwic.filters.Selector;
-import kwic.filters.Transformer;
+
 import kwic.filters.IO;
+import kwic.pipeline.Pipeline;
 
-import static kwic.filters.IO.READ;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
-        String pathTitle = args[0];
-        String pathIgnore = args[1];
-        String pathRequired = args[2];
+public class Main { // reading and writing of user input
+    public static void main(String[] args)throws IOException {
+        String manualListFileName = args[0];
+        IO.OutFilter out = IO.newSystemOutFilter();
 
-        Selector.SelectionFilter fIgnore = Selector.NEW_FILTER_IGNORE(Adapter.ITERATE_KEYWORDS(READ(pathIgnore)));
-        Selector.SelectionFilter fRequire = Selector.NEW_FILTER_REQUIRE(Adapter.ITERATE_KEYWORDS(READ(pathRequired)));
-        IO.WriteFilter pWriter = IO.NEW_WRITE(pathTitle.replace(".txt", "-output.txt"));
-
-        // outer function takes in output of the inner function
-        pWriter.write(Adapter.STRINGIFY(fRequire.filter(fIgnore.filter(Transformer.LEXI((Transformer.SHIFT(Adapter.ITERATE_TITLES(READ(pathTitle)))))))));
+        app(manualListFileName,out);
     }
+
+    public static void app(String manualListFileName, IO.OutFilter out) {
+        Librarian librarian = new Librarian();
+        try{
+            librarian.processListOfFileNames(manualListFileName);
+        }catch (IOException error){
+            out.write(" Some error ");
+            return;
+        }
+        Scanner in = new Scanner(System.in);
+        String query;
+        while((query = in.nextLine()) != "q"){
+                librarian.userQueries(query);
+                String output = librarian.canIHaveFormattedHistory();
+        }
+        out.write("execution ends");
+    }
+
+
+    public static int newLibarian(ArrayList<String> manualFileNames) {
+        return -1;
+    }
+
+
 }

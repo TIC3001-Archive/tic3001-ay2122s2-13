@@ -5,7 +5,7 @@ import java.util.Comparator;
 import java.util.Locale;
 
 public class Transformer {
-    public static ArrayList<ArrayList<String>> SHIFT(ArrayList<ArrayList<String>> lines) {
+    public static ArrayList<ArrayList<String>> shift(ArrayList<ArrayList<String>> lines) {
         ArrayList<ArrayList<String>> shiftedLinesAll = new ArrayList<>();
         for (ArrayList<String> words : lines) {
             ArrayList<ArrayList<String>> thisShiftedLines = new ArrayList<>();
@@ -22,7 +22,7 @@ public class Transformer {
         return shiftedLinesAll;
     }
 
-    public static ArrayList<ArrayList<String>> LEXI(ArrayList<ArrayList<String>> lines) {
+    public static ArrayList<ArrayList<String>> lexi(ArrayList<ArrayList<String>> lines) {
         ArrayList<ArrayList<String>> alphabetized = new ArrayList<>(lines);
         alphabetized.sort(Comparator.comparing(a -> String.join(" ", a).toLowerCase(Locale.ROOT)));
         return alphabetized;

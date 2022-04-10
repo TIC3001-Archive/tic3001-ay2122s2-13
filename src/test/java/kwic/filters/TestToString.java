@@ -13,7 +13,7 @@ public class TestToString {
     @Test
     void Test_Input_Empty() {
         ArrayList<ArrayList<String>> expected = COLLECT_LINES();
-        String actual = Adapter.STRINGIFY(expected);
+        String actual = Adapter.stringify(expected);
         assertEquals("", actual);
     }
 
@@ -21,7 +21,7 @@ public class TestToString {
     @Test
     void Test_Input_SingleWordLine() {
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")));
-        String actual = Adapter.STRINGIFY(expected);
+        String actual = Adapter.stringify(expected);
 
         assertEquals("a", actual);
     }
@@ -29,7 +29,7 @@ public class TestToString {
     @Test
     void Test_Input_SingleWordLines() {
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<String>(List.of("a")), new ArrayList<String>(List.of("b")));
-        String actual = Adapter.STRINGIFY(expected);
+        String actual = Adapter.stringify(expected);
 
         assertEquals("a\nb", actual);
     }
@@ -40,7 +40,7 @@ public class TestToString {
         ArrayList<String> expectedLine2 = new ArrayList<String>(List.of("b"));
         ArrayList<String> expectedLine3 = new ArrayList<String>(List.of("c"));
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2, expectedLine3);
-        String actual = Adapter.STRINGIFY(expected);
+        String actual = Adapter.stringify(expected);
 
         assertEquals("a d\nb\nc", actual);
     }

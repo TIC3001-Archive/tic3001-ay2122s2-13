@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 
 import static kwic.TestKWICUtils.COLLECT_LINES;
-import static kwic.TestKWICUtils.IS_SAME_LINES;
+import static kwic.TestKWICUtils.isSameLines;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestShift {
@@ -14,9 +14,9 @@ public class TestShift {
     @Test
     void Test_Input_Empty() {
         ArrayList<ArrayList<String>> input = new ArrayList<>();
-        ArrayList<ArrayList<String>> actual = Transformer.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = Transformer.shift(input);
         ArrayList<ArrayList<String>> expected = input;
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
 
@@ -32,9 +32,9 @@ public class TestShift {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1);
-        ArrayList<ArrayList<String>> actual = Transformer.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = Transformer.shift(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
     @Test
@@ -53,9 +53,9 @@ public class TestShift {
         }};
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Transformer.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = Transformer.shift(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
     @Test
@@ -81,9 +81,9 @@ public class TestShift {
         }};
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2, expectedLine3);
-        ArrayList<ArrayList<String>> actual = Transformer.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = Transformer.shift(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
     @Test
@@ -106,9 +106,9 @@ public class TestShift {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2);
-        ArrayList<ArrayList<String>> actual = Transformer.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = Transformer.shift(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
     @Test
@@ -141,9 +141,9 @@ public class TestShift {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2, expectedLine3, expectedLine4);
-        ArrayList<ArrayList<String>> actual = Transformer.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = Transformer.shift(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
     @Test
@@ -191,9 +191,9 @@ public class TestShift {
         }};
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2, expectedLine3, expectedLine4, expectedLine5, expectedLine6);
-        ArrayList<ArrayList<String>> actual = Transformer.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = Transformer.shift(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
     @Test
@@ -235,9 +235,9 @@ public class TestShift {
 
         // act
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(expectedLine1, expectedLine2, expectedLine3, expectedLine4, expectedLine5);
-        ArrayList<ArrayList<String>> actual = Transformer.SHIFT(input);
+        ArrayList<ArrayList<String>> actual = Transformer.shift(input);
         // assert
-        assertTrue(IS_SAME_LINES(expected, actual));
+        assertTrue(isSameLines(expected, actual));
     }
 
 }

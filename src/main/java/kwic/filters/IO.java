@@ -1,19 +1,16 @@
 package kwic.filters;
 
+import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
 public class IO {
-    public static String READ(String path) {
-        try {
-            return Files.readString(Path.of(path));
-        } catch (Exception __) {
-            return "";
-        }
+    public static String read(String path) throws IOException {
+        return Files.readString(Path.of(path));
     }
 
-    public static WriteFilter NEW_WRITE(String pathString) {
+    public static OutFilter newWriteToFileOutFilter(String pathString) {
         return output -> {
             try {
                 Files.write(Path.of(pathString), output.getBytes(StandardCharsets.UTF_8));
@@ -22,7 +19,11 @@ public class IO {
         };
     }
 
-    public interface WriteFilter {
+    public static OutFilter newSystemOutFilter(){
+        return System.out::print;
+    }
+
+    public interface OutFilter {
         void write(String output);
     }
 }

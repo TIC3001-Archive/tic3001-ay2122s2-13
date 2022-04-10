@@ -7,6 +7,7 @@ public class Selector {
     interface Predicate {
         boolean shouldSelect(String word);
     }
+
     public interface SelectionFilter {
         ArrayList<ArrayList<String>> filter(ArrayList<ArrayList<String>> source);
     }

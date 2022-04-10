@@ -1,13 +1,19 @@
 package kwic.filters;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
+import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
 public class IO {
     public static String read(String path) throws IOException {
-        return Files.readString(Path.of(path));
+        try {
+            return Files.readString(Path.of(path));
+        } catch (NoSuchFileException err) {
+            throw new NoSuchFileException("Error opening file " + path + " (No Such File Exception)");
+        }
     }
 
     public static OutFilter newWriteToFileOutFilter(String pathString) {
@@ -19,7 +25,7 @@ public class IO {
         };
     }
 
-    public static OutFilter newSystemOutFilter(){
+    public static OutFilter newSystemOutFilter() {
         return System.out::print;
     }
 

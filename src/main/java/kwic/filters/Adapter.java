@@ -23,6 +23,6 @@ public class Adapter {
     }
 
     public static String stringify(ArrayList<ArrayList<String>> _lines) {
-        return _lines.stream().map(_line -> String.join(" ",_line)).collect(Collectors.joining("\n"));
+        return _lines.stream().map(_line -> String.join(" ", _line)).collect(Collectors.joining("\n"));
     }
 }

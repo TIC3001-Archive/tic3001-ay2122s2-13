@@ -16,9 +16,9 @@ see individual README.md for usage.
 1) ```./PipeAndFilter``` Pipe and Filter Design
 2) ```./AbstractDataType``` Abstract Data Type Design
 
-### Assignment 2
+### Assignment 3
 
-Assignment 2 follows file structure for Maven support.
+Assignment 3 follows file structure for Maven support.
 
 ## Development
 
@@ -55,7 +55,7 @@ See [github action](./.github/workflows/flow.yaml)
 
 ## Run
 
-```java -jar NoelLim/KWIC.jar [title] [ignore] [required]``` Run program where “titles”, “ignore”, and “required” are
+```java -jar NoelLim/KWIC.jar ListOfFile.in``` Run program where “titles”, “ignore”, and “required” are
 input file paths.
 
 ### Example

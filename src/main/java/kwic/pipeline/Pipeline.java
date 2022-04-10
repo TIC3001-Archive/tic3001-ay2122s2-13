@@ -20,6 +20,10 @@ public class Pipeline {
         return Selector.newFilterRequire((generateEndOfLineDelimitedWordListFromFileName(path)));
     }
 
+    public static ArrayList<ArrayList<String>> generateConcordance(String filename) throws IOException {
+        return (Transformer.lexi((Transformer.shift(Adapter.iterateTitles(read(filename))))));
+    }
+
     // Takes in filenames 1) containing titles 2) ignored keywords 3) required keywords
     public static void generateAssignment2(String[] args) throws IOException {
         String pathTitle = args[0];
@@ -34,7 +38,5 @@ public class Pipeline {
         pWriter.write(Adapter.stringify(fRequire.filter(fIgnore.filter(Transformer.lexi((Transformer.shift(Adapter.iterateTitles(read(pathTitle)))))))));
     }
 
-    public static ArrayList<ArrayList<String>> generateConcordance(String filename) throws IOException {
-        return (Transformer.lexi((Transformer.shift(Adapter.iterateTitles(read(filename))))));
-    }
+
 }

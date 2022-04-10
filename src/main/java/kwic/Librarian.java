@@ -13,7 +13,6 @@ public class Librarian {
     public Librarian() {
     }
 
-
     public void processListOfFileNames(String manualListFileName) throws IOException {
         ArrayList<String> manualFileNames = Pipeline.generateEndOfLineDelimitedWordListFromFileName(manualListFileName);
         for (String manualFileName : manualFileNames) {
@@ -26,7 +25,7 @@ public class Librarian {
 
     public void userQueries(String query) {
 
-        Selector.SelectionFilter fRequire = Selector.newFilterRequire(new ArrayList<String>(Arrays.asList(query)));
+        Selector.SelectionFilter fRequire = Selector.newFilterRequire(new ArrayList<String>(List.of(query)));
 
         for (Manual m : manuals) {
             ArrayList<ArrayList<String>> concordance = m.getConcordance();
@@ -42,8 +41,7 @@ public class Librarian {
             if (history.isEmpty()) {
                 break;
             }
-
-            sb.append(m.getName() + System.lineSeparator());
+            sb.append(m.getName()).append(System.lineSeparator());
 
             for (Map.Entry<String, Integer>
                     entry : history.entrySet()) {
@@ -51,12 +49,11 @@ public class Librarian {
                 Integer occurrence = entry.getValue();
 
                 while (occurrence > 0) {
-                    sb.append(title + System.lineSeparator());
+                    sb.append(title).append(System.lineSeparator());
                     occurrence -= 1;
                 }
             }
         }
-
         return sb.toString();
     }
 

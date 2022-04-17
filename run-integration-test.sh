@@ -12,7 +12,7 @@ mvn package
 # test jar output
 
 
-test_codes=("8" "1" "2" "3" "4" "5" "6" "7")
+test_codes=("1" "2" "3" "4" "5" "6" "7" "8")
 
 echo "running test"
 

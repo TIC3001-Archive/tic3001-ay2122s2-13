@@ -20,19 +20,19 @@ public class Selector {
      * Shifted Lines
      * We consider the case that the line may be shifted and the original line ended with a full stop.
      * That is, the first word of a target line may end with full stop. We may then strip the fullstop before applying the predicate function.
-     *
+     * <p>
      * Example of filtering a shifted line:
-     *      Original Line : "I am a dog."
-     *      Decomposed: <I,am,a,dog.>
-     *      Shifted: <dog.,I,am,a>
-     *      Before Applying Predicate: <dog,I,am,a>
+     * Original Line : "I am a dog."
+     * Decomposed: <I,am,a,dog.>
+     * Shifted: <dog.,I,am,a>
+     * Before Applying Predicate: <dog,I,am,a>
      *
      * @param requireSet set of words that intersects with the first word of a line.
      * @return predicate
      */
     public static Predicate newRequiredLineByFirstWordPredicateAgainstSet(HashSet<String> requireSet) {
         return line ->
-                requireSet.size() == 0 || (requireSet.contains(line.get(0).replaceAll("\\.$", "").toLowerCase(Locale.ROOT)))  ;
+                requireSet.size() == 0 || (requireSet.contains(line.get(0).replaceAll("\\.$", "").toLowerCase(Locale.ROOT)));
     }
 
     public static Predicate newRequiredLineByFirstWordAgainstSingleKeywordPredicate(String keyword)

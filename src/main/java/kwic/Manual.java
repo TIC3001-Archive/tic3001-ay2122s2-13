@@ -1,6 +1,5 @@
 package kwic;
 
-import com.sun.source.tree.Tree;
 
 import java.util.*;
 
@@ -20,6 +19,10 @@ public class Manual {
         return name;
     }
 
+    /**
+     * Records the occurrence of a line in the concordance if it appears in a search result.
+     * @param result
+     */
     public void recordSearchResult(ArrayList<ArrayList<String>> result) {
         for (ArrayList<String> words : result) {
             String title = String.join(" ", words);

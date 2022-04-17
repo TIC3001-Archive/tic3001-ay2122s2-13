@@ -7,7 +7,12 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
 public class IO {
-
+    /**
+     * Reads content from a file path
+     * @param path
+     * @return
+     * @throws IOException
+     */
     public static String read(String path) throws IOException {
         try {
             return Files.readString(Path.of(path));
@@ -21,6 +26,9 @@ public class IO {
         void write(String output);
     }
 
+    /*
+    * Writes to a file.
+     */
     public static OutFilter newWriteToFileOutFilter(String pathString) {
         return output -> {
             try {
@@ -30,6 +38,10 @@ public class IO {
         };
     }
 
+    /**
+     * Writes to standard output
+     * @return
+     */
     public static OutFilter newSystemOutFilter() {
         return System.out::print;
     }

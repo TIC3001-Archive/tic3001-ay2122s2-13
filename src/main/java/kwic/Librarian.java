@@ -19,6 +19,7 @@ public class Librarian {
 
     /**
      * See in-line comments.
+     *
      * @param manualListFileNamePath
      * @throws IOException
      */
@@ -43,6 +44,7 @@ public class Librarian {
     /**
      * The result of the query of each manual will be recorded natively.
      * This method does not return the result. Call {@link #canIHaveFormattedHistory()} to get the result.
+     *
      * @param query first word of the title.
      */
     public void userQueries(String query) {
@@ -56,10 +58,11 @@ public class Librarian {
 
     /**
      * For each manual, obtain its history.
-     *          If history is empty, continue to the next manual.
-     *          If history contains entries, append manual name and titles recorded in each history.
-     *              Titles will repeat for each occurrence in the history.
-     *                  For example, if the title is a result of 3 out of a total of 6 queries, it will be appended 3 times.
+     * If history is empty, continue to the next manual.
+     * If history contains entries, append manual name and titles recorded in each history.
+     * Titles will repeat for each occurrence in the history.
+     * For example, if the title is a result of 3 out of a total of 6 queries, it will be appended 3 times.
+     *
      * @return formatted history
      */
     public String canIHaveFormattedHistory() {

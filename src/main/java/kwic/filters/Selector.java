@@ -35,10 +35,10 @@ public class Selector {
                 requireSet.size() == 0 || (requireSet.contains(line.get(0).replaceAll("\\.$", "").toLowerCase(Locale.ROOT)));
     }
 
-    public static Predicate newRequiredLineByFirstWordAgainstSingleKeywordPredicate(String keyword)
-    {
+    public static Predicate newRequiredLineByFirstWordAgainstSingleKeywordPredicate(String keyword) {
 
-        return line -> line.get(0).replaceAll("\\.$", "").toLowerCase(Locale.ROOT).equals(keyword.toLowerCase(Locale.ROOT));}
+        return line -> line.get(0).replaceAll("\\.$", "").toLowerCase(Locale.ROOT).equals(keyword.toLowerCase(Locale.ROOT));
+    }
 
     /**
      * @param ignoreSet set of words that DO NOT intersect with the first word of a line.

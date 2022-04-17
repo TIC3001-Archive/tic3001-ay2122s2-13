@@ -7,10 +7,10 @@ import java.util.Locale;
 public class Transformer {
     /**
      * For each line, generate circular shifted lines
-     *
+     * <p>
      * Line:
      * word1, word2, word3
-     *
+     * <p>
      * Shifted Lines:
      * word1, word2, word3
      * word2, word3, word1
@@ -38,6 +38,7 @@ public class Transformer {
 
     /**
      * Lexically
+     *
      * @param lines
      * @return
      */

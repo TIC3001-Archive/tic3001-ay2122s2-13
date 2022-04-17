@@ -25,6 +25,7 @@ public class Pipeline {
     public static Selector.SelectionFilter newFilterRequiringDelimitedKeywordsFromFileName(String path) throws IOException {
         return Selector.newRequireFilter(Selector.newIgnoreLinePredicate(arrayListToHashSet(_generateEndOfLineDelimitedWordListFromFileName(path))));
     }
+
     public static ArrayList<ArrayList<String>> fileNameToConcordancePipeline(String filename) throws IOException {
         return (((Transformer.shift(Adapter.iterateTitles(delimitLinesInParagraphWithEOL(read(filename)))))));
     }

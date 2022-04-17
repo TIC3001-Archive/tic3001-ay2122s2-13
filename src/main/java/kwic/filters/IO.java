@@ -9,6 +9,7 @@ import java.nio.file.Path;
 public class IO {
     /**
      * Reads content from a file path
+     *
      * @param path
      * @return
      * @throws IOException
@@ -27,7 +28,7 @@ public class IO {
     }
 
     /*
-    * Writes to a file.
+     * Writes to a file.
      */
     public static OutFilter newWriteToFileOutFilter(String pathString) {
         return output -> {
@@ -40,6 +41,7 @@ public class IO {
 
     /**
      * Writes to standard output
+     *
      * @return
      */
     public static OutFilter newSystemOutFilter() {

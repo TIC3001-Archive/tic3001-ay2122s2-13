@@ -10,6 +10,7 @@ import java.util.stream.Stream;
 public class Adapter {
     /**
      * Split content by EOL.
+     *
      * @param text
      * @return
      */
@@ -19,6 +20,7 @@ public class Adapter {
 
     /**
      * Split content by whitespace.
+     *
      * @param text
      * @return
      */
@@ -28,6 +30,7 @@ public class Adapter {
 
     /**
      * Split raw content by EOL, then remove empty-sized elements
+     *
      * @param fileContent
      * @return
      */
@@ -37,6 +40,7 @@ public class Adapter {
 
     /**
      * Replaces the line delimiter " " with EOL in text with paragraphs.
+     *
      * @param fileContent
      * @return
      */
@@ -46,11 +50,12 @@ public class Adapter {
 
     /**
      * Set representation of a set of strings.
+     *
      * @param words
      * @return
      */
     public static HashSet<String> arrayListToHashSet(ArrayList<String> words) {
-        return (HashSet<String>)words.stream().map(word -> word.toLowerCase(Locale.ROOT)).collect(Collectors.toSet());
+        return (HashSet<String>) words.stream().map(word -> word.toLowerCase(Locale.ROOT)).collect(Collectors.toSet());
     }
 
     /**
@@ -65,6 +70,7 @@ public class Adapter {
 
     /**
      * Transforms lines to text representation for external use.
+     *
      * @param _lines
      * @return
      */

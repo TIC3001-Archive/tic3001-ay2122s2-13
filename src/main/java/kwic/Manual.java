@@ -21,6 +21,7 @@ public class Manual {
 
     /**
      * Records the occurrence of a line in the concordance if it appears in a search result.
+     *
      * @param result
      */
     public void recordSearchResult(ArrayList<ArrayList<String>> result) {

@@ -6,11 +6,6 @@
 `./a2_report.pdf` Assignment 2 Report
 `./a3_report.pdf` Assignment 3 Report
 
-A paragraph:
-
-delimited by end of line. ( \n )
-a combination of titles delimited by fullstop.
-
 ## Repositories
 
 ### Assignment 1 (Legacy)
@@ -23,7 +18,7 @@ see individual README.md for usage.
 
 ### Assignment 3
 
-Assignment 3 follows file structure for Maven support.
+File structure for Assignment 3 for Maven support.
 
 ## Development
 
@@ -65,8 +60,10 @@ input file paths.
 
 ### Example
 
-`java -jar NoelLim/KWIC.jar ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Ignored1.txt ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Required1.txt`
+`java -jar NoelLim/KWIC.jar ./sample_test_cases/TestCase1/ListOfFiles1.in`
 
 ## Output
 
-Output file is in the same parent folder as input file and file name is appended with "-output".
+Output file is in the same parent folder as input file and file name "ActualOutput" suffixed with test case code.
+
+

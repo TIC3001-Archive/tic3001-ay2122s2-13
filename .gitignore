@@ -31,3 +31,4 @@ text-ui-test/EXPECTED-UNIX.TXT
 /sample_test_cases/*/*-output.txt
 /residue/*
 !/residue/note.md
+ActualOutput*.*

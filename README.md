@@ -55,8 +55,7 @@ See [github action](./.github/workflows/flow.yaml)
 
 ## Run
 
-`java -jar NoelLim/KWIC.jar ListOfFile.in` Run program where “titles”, “ignore”, and “required” are
-input file paths.
+`java -jar NoelLim/KWIC.jar [path]` Run program with path to list of files.
 
 ### Example
 
@@ -64,6 +63,6 @@ input file paths.
 
 ## Output
 
-Output file is in the same parent folder as input file and file name "ActualOutput" suffixed with test case code.
+Output file is in the same parent folder as input file and file name "ActualOutput{code}.text" where {code} is test case code.
 
 

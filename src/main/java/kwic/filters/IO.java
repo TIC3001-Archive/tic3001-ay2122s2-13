@@ -1,6 +1,5 @@
 package kwic.filters;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
@@ -29,6 +28,7 @@ public class IO {
         return System.out::print;
     }
 
+    @FunctionalInterface
     public interface OutFilter {
         void write(String output);
     }

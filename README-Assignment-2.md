@@ -1,16 +1,11 @@
-# Assignment 3 - KWIC Search
+This readme is deprecated. Please refer to [README.md](README.md)
+
+# Assignment 2 - KWIC Extensions
 
 ## Report
 
 ```./a1_report.pdf``` Assignment 1 Report
 ```./a2_report.pdf``` Assignment 2 Report
-```./a3_report.pdf``` Assignment 3 Report
-
-
-A paragraph:
-
-delimited by end of line. ( \n )
-a combination of titles delimited by fullstop.
 
 
 ## Repositories

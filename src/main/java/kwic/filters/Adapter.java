@@ -19,10 +19,16 @@ public class Adapter {
     }
 
     public static String demarcateLinesInParagraph(String fileContent) {
-        String result =  fileContent.replaceAll("\\. ", "." + System.lineSeparator());
+        String result = fileContent.replaceAll("\\. ", "." + System.lineSeparator());
         return result;
     }
 
+    /**
+     * take in raw content
+     *
+     * @param fileContent
+     * @return
+     */
     public static ArrayList<ArrayList<String>> iterateTitles(String fileContent) {
         return splitByEol(demarcateLinesInParagraph(fileContent)).filter(line -> !line.equals("")).map(Adapter::splitByWhitespace).collect(Collectors.toCollection(ArrayList::new));
     }

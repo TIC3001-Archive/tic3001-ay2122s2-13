@@ -18,7 +18,7 @@ see individual README.md for usage.
 
 ### Assignment 3
 
-File structure for Assignment 3 for Maven support.
+File structure for Assignment 3 is set up Maven support.
 
 ## Development
 

@@ -30,10 +30,15 @@ public class Selector {
      * @param requireSet set of words that intersects with the first word of a line.
      * @return predicate
      */
-    public static Predicate newRequiredLineByFirstWordPredicate(HashSet<String> requireSet) {
+    public static Predicate newRequiredLineByFirstWordPredicateAgainstSet(HashSet<String> requireSet) {
         return line ->
                 requireSet.size() == 0 || (requireSet.contains(line.get(0).replaceAll("\\.$", "").toLowerCase(Locale.ROOT)))  ;
     }
+
+    public static Predicate newRequiredLineByFirstWordAgainstSingleKeywordPredicate(String keyword)
+    {
+
+        return line -> line.get(0).replaceAll("\\.$", "").toLowerCase(Locale.ROOT).equals(keyword.toLowerCase(Locale.ROOT));}
 
     /**
      * @param ignoreSet set of words that DO NOT intersect with the first word of a line.

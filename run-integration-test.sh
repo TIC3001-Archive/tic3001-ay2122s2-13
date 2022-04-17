@@ -12,7 +12,7 @@ mvn package
 # test jar output
 
 
-test_codes=("1" "2" "3" "4" "5" "6" "7")
+test_codes=("8" "1" "2" "3" "4" "5" "6" "7")
 
 echo "running test"
 
@@ -23,6 +23,7 @@ for i in "${test_codes[@]}"; do
   queries="${folder}/Queries${i}.txt"
   actual_output="${folder}/ActualOutput${i}.txt"
   expected_output="${folder}/ExpectedOutput${i}.txt"
+
   java -jar NoelLim/KWIC.jar "${manual_list_file_path}" < "${queries}" > "${actual_output}"
 
   cmp --print-chars "${expected_output}" "${actual_output}"

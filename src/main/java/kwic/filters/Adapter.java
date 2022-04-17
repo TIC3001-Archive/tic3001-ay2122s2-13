@@ -24,7 +24,7 @@ public class Adapter {
         return fileContent.replaceAll("\\. ", "." + System.lineSeparator());
     }
 
-    public static HashSet<String> ArrayListToHashSet(ArrayList<String> words) {
+    public static HashSet<String> arrayListToHashSet(ArrayList<String> words) {
         return (HashSet<String>)words.stream().map(word -> word.toLowerCase(Locale.ROOT)).collect(Collectors.toSet());
     }
 

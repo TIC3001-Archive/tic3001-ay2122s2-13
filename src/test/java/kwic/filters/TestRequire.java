@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 import static kwic.TestKWICUtils.*;
-import static kwic.filters.Adapter.ArrayListToHashSet;
+import static kwic.filters.Adapter.arrayListToHashSet;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
@@ -15,8 +15,8 @@ public class TestRequire {
     private static final ArrayList<String> REQUIRES_1 = new ArrayList<>(Arrays.asList("is", "a"));
     private static final ArrayList<String> REQUIRES_2 = new ArrayList<>();
 
-    private static final Selector.SelectionFilter FILTER_1 = Selector.newRequireFilter(Selector.newRequiredLineByFirstWordPredicate(ArrayListToHashSet(TestRequire.REQUIRES_1)));
-    private static final Selector.SelectionFilter FILTER_2 = Selector.newRequireFilter(Selector.newRequiredLineByFirstWordPredicate(ArrayListToHashSet(TestRequire.REQUIRES_2)));
+    private static final Selector.SelectionFilter FILTER_1 = Selector.newRequireFilter(Selector.newRequiredLineByFirstWordPredicateAgainstSet(arrayListToHashSet(TestRequire.REQUIRES_1)));
+    private static final Selector.SelectionFilter FILTER_2 = Selector.newRequireFilter(Selector.newRequiredLineByFirstWordPredicateAgainstSet(arrayListToHashSet(TestRequire.REQUIRES_2)));
 
     @Test
     void Test_Input_Empty() {

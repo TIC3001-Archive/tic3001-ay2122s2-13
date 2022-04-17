@@ -13,8 +13,8 @@ public class TestIgnore {
     private static final ArrayList<String> IGNORES_1 = new ArrayList<>(Arrays.asList("is", "a"));
     private static final ArrayList<String> IGNORES_2 = new ArrayList<>();
 
-    private static final Selector.SelectionFilter FILTER_1 = Selector.newRequireFilter(Selector.newIgnoreLinePredicate(Adapter.ArrayListToHashSet(TestIgnore.IGNORES_1)));
-    private static final Selector.SelectionFilter FILTER_2 = Selector.newRequireFilter(Selector.newIgnoreLinePredicate(Adapter.ArrayListToHashSet(TestIgnore.IGNORES_2)));
+    private static final Selector.SelectionFilter FILTER_1 = Selector.newRequireFilter(Selector.newIgnoreLinePredicate(Adapter.arrayListToHashSet(TestIgnore.IGNORES_1)));
+    private static final Selector.SelectionFilter FILTER_2 = Selector.newRequireFilter(Selector.newIgnoreLinePredicate(Adapter.arrayListToHashSet(TestIgnore.IGNORES_2)));
 
     @Test
     void Test_Input_Empty() {

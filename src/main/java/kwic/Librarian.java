@@ -7,8 +7,6 @@ import kwic.pipeline.Pipeline;
 import java.io.IOException;
 import java.util.*;
 
-import static kwic.filters.Adapter.ArrayListToHashSet;
-
 public class Librarian {
     TreeSet<Manual> manuals;
 
@@ -48,7 +46,7 @@ public class Librarian {
      * @param query first word of the title.
      */
     public void userQueries(String query) {
-        Selector.SelectionFilter fRequire = Selector.newRequireFilter(Selector.newRequiredLineByFirstWordPredicate(ArrayListToHashSet(new ArrayList<String>(List.of(query)))));
+        Selector.SelectionFilter fRequire = Selector.newRequireFilter(Selector.newRequiredLineByFirstWordAgainstSingleKeywordPredicate(query));
         for (Manual m : manuals) {
             ArrayList<ArrayList<String>> concordance = m.getConcordance();
             ArrayList<ArrayList<String>> result = fRequire.filter(concordance);

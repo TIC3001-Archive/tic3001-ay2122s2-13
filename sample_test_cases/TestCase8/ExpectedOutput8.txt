@@ -1,0 +1,5 @@
+sample_test_cases/TestCase1/CourseTitles1.txt
+Computer science
+sample_test_cases/TestCase1/MovieTitles1.txt
+Computer chess
+execution ends

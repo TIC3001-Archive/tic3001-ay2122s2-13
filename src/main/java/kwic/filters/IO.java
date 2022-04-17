@@ -7,12 +7,18 @@ import java.nio.file.NoSuchFileException;
 import java.nio.file.Path;
 
 public class IO {
+
     public static String read(String path) throws IOException {
         try {
             return Files.readString(Path.of(path));
         } catch (NoSuchFileException err) {
             throw new NoSuchFileException("Error opening file " + path + " (No Such File Exception)");
         }
+    }
+
+    @FunctionalInterface
+    public interface OutFilter {
+        void write(String output);
     }
 
     public static OutFilter newWriteToFileOutFilter(String pathString) {
@@ -28,8 +34,5 @@ public class IO {
         return System.out::print;
     }
 
-    @FunctionalInterface
-    public interface OutFilter {
-        void write(String output);
-    }
+
 }

@@ -12,15 +12,19 @@ import static kwic.filters.IO.read;
 
 public class Pipeline {
 
-    public static ArrayList<String> generateEndOfLineDelimitedWordListFromFileName(String path) throws IOException {
+    public static ArrayList<String> _generateEndOfLineDelimitedWordListFromFileName(String path) throws IOException {
         return Adapter.iterateKeywords(read(path));
     }
 
-    public static Selector.SelectionFilter newFilterRequiringDelimitedKeywordsFromFileName(String path) throws IOException {
-        return Selector.newFilterRequire((generateEndOfLineDelimitedWordListFromFileName(path)));
+    public static ArrayList<String> listOfFileNamePathToManualFileNamePipeline(String path) throws IOException {
+        return (_generateEndOfLineDelimitedWordListFromFileName(path));
     }
 
-    public static ArrayList<ArrayList<String>> fileNameToConcordanceFilter(String filename) throws IOException {
+    public static Selector.SelectionFilter newFilterRequiringDelimitedKeywordsFromFileName(String path) throws IOException {
+        return Selector.newRequireFilter((_generateEndOfLineDelimitedWordListFromFileName(path)));
+    }
+
+    public static ArrayList<ArrayList<String>> fileNameToConcordancePipeline(String filename) throws IOException {
         return (((Transformer.shift(Adapter.iterateTitles(read(filename))))));
     }
 
@@ -30,7 +34,7 @@ public class Pipeline {
         String pathIgnore = args[1];
         String pathRequired = args[2];
 
-        Selector.SelectionFilter fIgnore = Selector.newFilterIgnore(generateEndOfLineDelimitedWordListFromFileName(pathIgnore));
+        Selector.SelectionFilter fIgnore = Selector.newFilterIgnore(_generateEndOfLineDelimitedWordListFromFileName(pathIgnore));
         Selector.SelectionFilter fRequire = newFilterRequiringDelimitedKeywordsFromFileName(pathRequired);
         IO.OutFilter pWriter = IO.newWriteToFileOutFilter(pathTitle.replace(".txt", "-output.txt"));
 

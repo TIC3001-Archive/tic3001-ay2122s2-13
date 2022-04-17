@@ -14,8 +14,8 @@ public class TestRequire {
     private static final ArrayList<String> REQUIRES_1 = new ArrayList<>(Arrays.asList("is", "a"));
     private static final ArrayList<String> REQUIRES_2 = new ArrayList<>();
 
-    private static final Selector.SelectionFilter FILTER_1 = Selector.newFilterRequire(TestRequire.REQUIRES_1);
-    private static final Selector.SelectionFilter FILTER_2 = Selector.newFilterRequire(TestRequire.REQUIRES_2);
+    private static final Selector.SelectionFilter FILTER_1 = Selector.newRequireFilter(TestRequire.REQUIRES_1);
+    private static final Selector.SelectionFilter FILTER_2 = Selector.newRequireFilter(TestRequire.REQUIRES_2);
 
     @Test
     void Test_Input_Empty() {
@@ -49,11 +49,11 @@ public class TestRequire {
     void Test_Input_ACCEPT_1_SHOULDACCEPT_2() {
         // arrange inputs
         ArrayList<String> inputLine1 = CREATE_LINE("is");
-        ArrayList<String> inputLine2 = CREATE_LINE("Is","some");
-        ArrayList<String> inputLine3 = CREATE_LINE("is","some");
+        ArrayList<String> inputLine2 = CREATE_LINE("Is", "some");
+        ArrayList<String> inputLine3 = CREATE_LINE("is", "some");
         ArrayList<String> inputLine4 = CREATE_LINE("IS");
-        ArrayList<String> inputLine5 = CREATE_LINE("IS","c");
-        ArrayList<String> inputLine6 = CREATE_LINE("Is","c");
+        ArrayList<String> inputLine5 = CREATE_LINE("IS", "c");
+        ArrayList<String> inputLine6 = CREATE_LINE("Is", "c");
 
         ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2, inputLine3, inputLine4, inputLine5, inputLine6);
 
@@ -72,11 +72,11 @@ public class TestRequire {
 
         // arrange inputs
         ArrayList<String> inputLine1 = CREATE_LINE("isa");
-        ArrayList<String> inputLine2 = CREATE_LINE("some","Is");
-        ArrayList<String> inputLine3 = CREATE_LINE("some","is");
+        ArrayList<String> inputLine2 = CREATE_LINE("some", "Is");
+        ArrayList<String> inputLine3 = CREATE_LINE("some", "is");
         ArrayList<String> inputLine4 = CREATE_LINE("ISS");
-        ArrayList<String> inputLine5 = CREATE_LINE("c","IS");
-        ArrayList<String> inputLine6 = CREATE_LINE("cis","Is");
+        ArrayList<String> inputLine5 = CREATE_LINE("c", "IS");
+        ArrayList<String> inputLine6 = CREATE_LINE("cis", "Is");
 
         ArrayList<ArrayList<String>> input = COLLECT_LINES(inputLine1, inputLine2, inputLine3, inputLine4, inputLine5, inputLine6);
 

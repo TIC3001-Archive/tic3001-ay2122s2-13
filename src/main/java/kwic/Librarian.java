@@ -13,11 +13,11 @@ public class Librarian {
     public Librarian() {
     }
 
-    public void processListOfFileNames(String manualListFileName) throws IOException {
-        ArrayList<String> manualFileNames = Pipeline.generateEndOfLineDelimitedWordListFromFileName(manualListFileName);
+    public void processListOfFileNames(String manualListFileNamePath) throws IOException {
+        ArrayList<String> manualFileNames = Pipeline.listOfFileNamePathToManualFileNamePipeline(manualListFileNamePath);
         for (String manualFileName : manualFileNames) {
             String name = manualFileName;
-            ArrayList<ArrayList<String>> concordance = Pipeline.fileNameToConcordanceFilter(manualFileName);
+            ArrayList<ArrayList<String>> concordance = Pipeline.fileNameToConcordancePipeline(manualFileName);
             Manual manual = new Manual(name, concordance);
             manuals.add(manual);
         }
@@ -25,7 +25,7 @@ public class Librarian {
 
     public void userQueries(String query) {
 
-        Selector.SelectionFilter fRequire = Selector.newFilterRequire(new ArrayList<String>(List.of(query)));
+        Selector.SelectionFilter fRequire = Selector.newRequireFilter(new ArrayList<String>(List.of(query)));
 
         for (Manual m : manuals) {
             ArrayList<ArrayList<String>> concordance = m.getConcordance();

@@ -1,0 +1,10 @@
+sample_test_cases/TestCase2/CourseTitles2.txt
+science Computer
+Science Life
+sample_test_cases/TestCase2/CourseTitles2.txt
+science Computer
+Science Life
+sample_test_cases/TestCase2/CourseTitles2.txt
+science Computer
+Science Life
+execution ends

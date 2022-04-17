@@ -2,16 +2,14 @@
 
 ## Report
 
-```./a1_report.pdf``` Assignment 1 Report
-```./a2_report.pdf``` Assignment 2 Report
-```./a3_report.pdf``` Assignment 3 Report
-
+`./a1_report.pdf` Assignment 1 Report
+`./a2_report.pdf` Assignment 2 Report
+`./a3_report.pdf` Assignment 3 Report
 
 A paragraph:
 
 delimited by end of line. ( \n )
 a combination of titles delimited by fullstop.
-
 
 ## Repositories
 
@@ -20,8 +18,8 @@ a combination of titles delimited by fullstop.
 This codebase contains 2 repositories from Assignment 1 in its subfolder. Change to respective working directories and
 see individual README.md for usage.
 
-1) ```./PipeAndFilter``` Pipe and Filter Design
-2) ```./AbstractDataType``` Abstract Data Type Design
+1. `./PipeAndFilter` Pipe and Filter Design
+2. `./AbstractDataType` Abstract Data Type Design
 
 ### Assignment 3
 
@@ -44,7 +42,7 @@ The authoritative test script for error detection is found at [./run-integration
 3. Install dependencies.
 4. Compile to bytecode.
 5. Package into jar.
-6. System test against jar. Test files are found at  [Directory for Sample Cases](#directory-for-sample-cases)
+6. System test against jar. Test files are found at [Directory for Sample Cases](#directory-for-sample-cases)
 
 #### Local Test
 
@@ -58,16 +56,16 @@ See [github action](./.github/workflows/flow.yaml)
 
 #### Directory for Sample Cases
 
-```./sample_test_cases``` Test folder. Test sets are stored in individual subfolders.
+`./sample_test_cases` Test folder. Test sets are stored in individual subfolders.
 
 ## Run
 
-```java -jar NoelLim/KWIC.jar ListOfFile.in``` Run program where “titles”, “ignore”, and “required” are
+`java -jar NoelLim/KWIC.jar ListOfFile.in` Run program where “titles”, “ignore”, and “required” are
 input file paths.
 
 ### Example
 
-```java -jar NoelLim/KWIC.jar ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Ignored1.txt ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Required1.txt```
+`java -jar NoelLim/KWIC.jar ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Ignored1.txt ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Required1.txt`
 
 ## Output
 

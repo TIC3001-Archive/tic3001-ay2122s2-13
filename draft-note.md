@@ -7,4 +7,4 @@ reused.
  Evidence of unit, integration and system testing.
  Using GitHub, GitHub classroom, Git repositories, CI for your implementation.
  The presentation about your approach conducted in class on Mon, 11 Apr (Zoom session).
- Code quality **
+ Code quality \*\*

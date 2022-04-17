@@ -1,6 +1,7 @@
 for development tracking of project
 
 # Routine Task
+
 - [ ] progressive documentation
 
 # Feature Level 0
@@ -12,21 +13,22 @@ for development tracking of project
 # Feature Level 1
 
 ## Test
-- user input loop
-    - [x] user should input as textCommand and app will echo back full text
-    - [x] exit loop on textCommand "bye"
 
+- user input loop
+  - [x] user should input as textCommand and app will echo back full text
+  - [x] exit loop on textCommand "bye"
 
 # Feature Level 2
 
 ## New Feature
+
 - [x] Create abstract Class Task
-    - [x] Create ToDo sub class of Task
-    - [x] Aggregate class TaskManager of Task objects
+  - [x] Create ToDo sub class of Task
+  - [x] Aggregate class TaskManager of Task objects
 - textCommand
-    - [x] default textCommand: create task with textCommand as task description
-    - [x] add textCommand `list` to list all tasks
-  
+  - [x] default textCommand: create task with textCommand as task description
+  - [x] add textCommand `list` to list all tasks
+
 # Feature Level 3
 
 ## New Feature
@@ -37,7 +39,6 @@ for development tracking of project
 # Feature Level 4
 
 ## New Feature
-
 
 - [x] Create Deadline extends Task
   - With deadline
@@ -59,7 +60,6 @@ No feature changes (error handling)
 
 - [x] `$ delete [task_id]` - delete a task \
 
-
 # [Feature Level 7]
 
 ## New Feature
@@ -73,7 +73,6 @@ No feature changes (error handling)
 ## New Feature
 
 - [x] change dateStrings to localDateTime
-
 
 # [Feature Level 9]
 

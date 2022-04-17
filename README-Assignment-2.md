@@ -4,9 +4,8 @@ This readme is deprecated. Please refer to [README.md](README.md)
 
 ## Report
 
-```./a1_report.pdf``` Assignment 1 Report
-```./a2_report.pdf``` Assignment 2 Report
-
+`./a1_report.pdf` Assignment 1 Report
+`./a2_report.pdf` Assignment 2 Report
 
 ## Repositories
 
@@ -15,8 +14,8 @@ This readme is deprecated. Please refer to [README.md](README.md)
 This codebase contains 2 repositories from Assignment 1 in its subfolder. Change to respective working directories and
 see individual README.md for usage.
 
-1) ```./PipeAndFilter``` Pipe and Filter Design
-2) ```./AbstractDataType``` Abstract Data Type Design
+1. `./PipeAndFilter` Pipe and Filter Design
+2. `./AbstractDataType` Abstract Data Type Design
 
 ### Assignment 2
 
@@ -39,7 +38,7 @@ The authoritative test script for error detection is found at [./run-integration
 3. Install dependencies.
 4. Compile to bytecode.
 5. Package into jar.
-6. System test against jar. Test files are found at  [Directory for Sample Cases](#directory-for-sample-cases)
+6. System test against jar. Test files are found at [Directory for Sample Cases](#directory-for-sample-cases)
 
 #### Local Test
 
@@ -53,16 +52,16 @@ See [github action](./.github/workflows/flow.yaml)
 
 #### Directory for Sample Cases
 
-```./sample_test_cases``` Test folder. Test sets are stored in individual subfolders.
+`./sample_test_cases` Test folder. Test sets are stored in individual subfolders.
 
 ## Run
 
-```java -jar NoelLim/KWIC.jar [title] [ignore] [required]``` Run program where “titles”, “ignore”, and “required” are
+`java -jar NoelLim/KWIC.jar [title] [ignore] [required]` Run program where “titles”, “ignore”, and “required” are
 input file paths.
 
 ### Example
 
-```java -jar NoelLim/KWIC.jar ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Ignored1.txt ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Required1.txt```
+`java -jar NoelLim/KWIC.jar ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Ignored1.txt ./sample_test_cases/Test1/Titles1.txt ./sample_test_cases/Test1/Required1.txt`
 
 ## Output
 

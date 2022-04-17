@@ -5,13 +5,15 @@ Run program to return output file.
 
 ### Directory - Sample Cases
 
-```./sample_test_cases``` Test folder. Test sets are stored in individual subfolders.
+`./sample_test_cases` Test folder. Test sets are stored in individual subfolders.
 
 ## Run
-```java src/main/java/Main.java [source]``` Run program with source path as argument.
+
+`java src/main/java/Main.java [source]` Run program with source path as argument.
 
 ### Example
-```java src/main/java/Main.java ./sample_test_cases/testcase1/TitlesInput1.txt```
+
+`java src/main/java/Main.java ./sample_test_cases/testcase1/TitlesInput1.txt`
 
 ## Output
 

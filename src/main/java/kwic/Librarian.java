@@ -7,6 +7,8 @@ import kwic.pipeline.Pipeline;
 import java.io.IOException;
 import java.util.*;
 
+import static kwic.filters.Adapter.toHashSet;
+
 public class Librarian {
     TreeSet<Manual> manuals = new TreeSet<Manual>(Comparator.comparing(m -> m.getName().toLowerCase(Locale.ROOT)));
 
@@ -25,7 +27,8 @@ public class Librarian {
 
     public void userQueries(String query) {
 
-        Selector.SelectionFilter fRequire = Selector.newRequireFilter(new ArrayList<String>(List.of(query)));
+
+        Selector.SelectionFilter fRequire = Selector.newRequireFilter(Selector.newRequiredLinePredicate(toHashSet(new ArrayList<String>(List.of(query)))));
 
         for (Manual m : manuals) {
             ArrayList<ArrayList<String>> concordance = m.getConcordance();

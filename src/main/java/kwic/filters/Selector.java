@@ -39,6 +39,6 @@ public class Selector {
         for (String require : requireList) {
             requireSet.add(require.toLowerCase(Locale.ROOT));
         }
-        return newLineSelectionByFirstWordFilter(requireSet.size() == 0 ? __ -> true : word -> requireSet.contains(word + ".") || requireSet.contains(word.toLowerCase(Locale.ROOT)));
+        return newLineSelectionByFirstWordFilter(requireSet.size() == 0 ? __ -> true : word -> (requireSet.contains(word.replaceAll("\\.$", ""))) || requireSet.contains(word.toLowerCase(Locale.ROOT)));
     }
 }

@@ -32,10 +32,14 @@ public class TestToIterableLines {
         assertEquals(1, actual.size());
         assertTrue(isSameLines(expected, actual));
     }
-
+    @Test
+    void Test_Input_Paragraph_Add_EOL() {
+        String fileContent = "I am a dog. I am a ";
+        assertEquals("I am a dog." + System.lineSeparator() + "I am a ", Adapter.demarcateLinesInParagraph(fileContent));
+    }
     @Test
     void Test_Input_SingleWordLines() {
-        String input = "a\nb";
+        String input = "a" + System.lineSeparator() + "b";
         ArrayList<ArrayList<String>> expected = COLLECT_LINES(new ArrayList<>(List.of("a")), new ArrayList<>(List.of("b")));
         ArrayList<ArrayList<String>> actual = Adapter.iterateTitles(input);
 
@@ -47,7 +51,7 @@ public class TestToIterableLines {
 
     @Test
     void Test_Input_MultipleLines() {
-        String input = "a d\nb\nc";
+        String input = "a d" + System.lineSeparator() + "b" + System.lineSeparator() +"c";
         ArrayList<String> expectedLine1 = new ArrayList<>(List.of("a", "d"));
         ArrayList<String> expectedLine2 = new ArrayList<>(List.of("b"));
         ArrayList<String> expectedLine3 = new ArrayList<>(List.of("c"));

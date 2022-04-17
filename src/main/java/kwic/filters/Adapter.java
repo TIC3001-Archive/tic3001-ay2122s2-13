@@ -18,12 +18,13 @@ public class Adapter {
         return splitByEol(fileContent).filter(word -> !word.equals("")).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static String appendEolToFullStop(String fileContent) {
-        return fileContent.replaceAll(".", "." + System.lineSeparator());
+    public static String demarcateLinesInParagraph(String fileContent) {
+        String result =  fileContent.replaceAll("\\. ", "." + System.lineSeparator());
+        return result;
     }
 
     public static ArrayList<ArrayList<String>> iterateTitles(String fileContent) {
-        return splitByEol(fileContent).filter(line -> !line.equals("")).map(Adapter::splitByWhitespace).collect(Collectors.toCollection(ArrayList::new));
+        return splitByEol(demarcateLinesInParagraph(fileContent)).filter(line -> !line.equals("")).map(Adapter::splitByWhitespace).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static String stringify(ArrayList<ArrayList<String>> _lines) {

@@ -35,7 +35,7 @@ public class TestToIterableLines {
     @Test
     void Test_Input_Paragraph_Add_EOL() {
         String fileContent = "I am a dog. I am a ";
-        assertEquals("I am a dog." + System.lineSeparator() + "I am a ", Adapter.demarcateLinesInParagraph(fileContent));
+        assertEquals("I am a dog." + System.lineSeparator() + "I am a ", Adapter.delimitLinesInParagraphWithEOL(fileContent));
     }
     @Test
     void Test_Input_SingleWordLines() {

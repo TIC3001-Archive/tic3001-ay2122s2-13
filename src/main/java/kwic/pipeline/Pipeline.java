@@ -8,7 +8,8 @@ import kwic.filters.Transformer;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import static kwic.filters.Adapter.toHashSet;
+import static kwic.filters.Adapter.ArrayListToHashSet;
+import static kwic.filters.Adapter.delimitLinesInParagraphWithEOL;
 import static kwic.filters.IO.read;
 
 public class Pipeline {
@@ -22,11 +23,10 @@ public class Pipeline {
     }
 
     public static Selector.SelectionFilter newFilterRequiringDelimitedKeywordsFromFileName(String path) throws IOException {
-        return Selector.newRequireFilter(Selector.newIgnoreLinePredicate(toHashSet(_generateEndOfLineDelimitedWordListFromFileName(path))));
+        return Selector.newRequireFilter(Selector.newIgnoreLinePredicate(ArrayListToHashSet(_generateEndOfLineDelimitedWordListFromFileName(path))));
     }
-
     public static ArrayList<ArrayList<String>> fileNameToConcordancePipeline(String filename) throws IOException {
-        return (((Transformer.shift(Adapter.iterateTitles(read(filename))))));
+        return (((Transformer.shift(Adapter.iterateTitles(delimitLinesInParagraphWithEOL(read(filename)))))));
     }
 
     // Takes in filenames 1) containing titles 2) ignored keywords 3) required keywords
@@ -35,7 +35,7 @@ public class Pipeline {
         String pathIgnore = args[1];
         String pathRequired = args[2];
 
-        Selector.SelectionFilter fIgnore = Selector.newIgnoreFilter(Selector.newIgnoreLinePredicate(toHashSet(_generateEndOfLineDelimitedWordListFromFileName(pathIgnore))));
+        Selector.SelectionFilter fIgnore = Selector.newRequireFilter(Selector.newIgnoreLinePredicate(ArrayListToHashSet(_generateEndOfLineDelimitedWordListFromFileName(pathIgnore))));
         Selector.SelectionFilter fRequire = newFilterRequiringDelimitedKeywordsFromFileName(pathRequired);
         IO.OutFilter pWriter = IO.newWriteToFileOutFilter(pathTitle.replace(".txt", "-output.txt"));
 

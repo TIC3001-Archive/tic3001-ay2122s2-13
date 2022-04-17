@@ -21,8 +21,8 @@ public class Main {
     }
 
     /**
-     * The application core. It is seperated into two parts. The first part loads the concordances in-memory
-     * and the second part listens to and respond to user queries.
+     * The application core. It is separated into two parts. The first part [Data loading] loads the concordances in-memory
+     * and the second part [Listener] listens to and respond to user queries. Both parts have escape triggers which exits the program.
      * @param manualListFileName input a command line argument which is the name of a file containing a list of files (one
      * file name with or without path on each line). E.g., These files are text files that contain different
      * sections of a Help manual.
@@ -30,7 +30,13 @@ public class Main {
      * Additionally, check this {@link kwic.filters.IO.OutFilter} method for direction based run.
      */
     public static void app(String manualListFileName, IO.OutFilter out) {
-        // Part 1 - Data loading. If the initial manualListFileName cannot be read, an IOException error will occur.
+        /**
+         *
+        * Part 1 - Data loading.
+         * The librarian will process from the manualListFileNames.
+         * If the initial manualListFileName cannot be read, the IOException error, if any, will be buffered.
+        * Then, the program will exit.
+        */
         Librarian librarian = new Librarian();
         try {
             librarian.processListOfFileNames(manualListFileName);

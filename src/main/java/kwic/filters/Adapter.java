@@ -20,22 +20,22 @@ public class Adapter {
         return splitByEol(fileContent).filter(word -> !word.equals("")).collect(Collectors.toCollection(ArrayList::new));
     }
 
-    public static String demarcateLinesInParagraph(String fileContent) {
+    public static String delimitLinesInParagraphWithEOL(String fileContent) {
         return fileContent.replaceAll("\\. ", "." + System.lineSeparator());
     }
 
-    public static HashSet<String> toHashSet(ArrayList<String> words) {
+    public static HashSet<String> ArrayListToHashSet(ArrayList<String> words) {
         return (HashSet<String>)words.stream().map(word -> word.toLowerCase(Locale.ROOT)).collect(Collectors.toSet());
     }
 
     /**
      * take in raw content
      *
-     * @param fileContent
+     * @param lineDelimitedTitles
      * @return
      */
-    public static ArrayList<ArrayList<String>> iterateTitles(String fileContent) {
-        return splitByEol(demarcateLinesInParagraph(fileContent)).filter(line -> !line.equals("")).map(Adapter::splitByWhitespace).collect(Collectors.toCollection(ArrayList::new));
+    public static ArrayList<ArrayList<String>> iterateTitles(String lineDelimitedTitles) {
+        return splitByEol(lineDelimitedTitles).filter(line -> !line.equals("")).map(Adapter::splitByWhitespace).collect(Collectors.toCollection(ArrayList::new));
     }
 
     public static String stringify(ArrayList<ArrayList<String>> _lines) {
